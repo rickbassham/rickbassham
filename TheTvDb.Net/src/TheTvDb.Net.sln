@@ -1,8 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTvDb.Net", "TheTvDb.Net\TheTvDb.Net.csproj", "{B97917CB-B7AA-44A3-AEA6-232EC3871294}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{85234DD3-46E3-4935-9AE0-5701D76E3BC4}"
 	ProjectSection(SolutionItems) = preProject
 		Episode Image Notes.txt = Episode Image Notes.txt
@@ -19,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{85234DD3-46E
 		..\doc\User_Rating.txt = ..\doc\User_Rating.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTvDb.Net.Test", "TheTvDb.Net.Test\TheTvDb.Net.Test.csproj", "{295472B5-77DC-4DBD-A100-3F46B2568886}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTvDb.Net", "TheTvDb.Net\TheTvDb.Net.csproj", "{B97917CB-B7AA-44A3-AEA6-232EC3871294}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{B97917CB-B7AA-44A3-AEA6-232EC3871294}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B97917CB-B7AA-44A3-AEA6-232EC3871294}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B97917CB-B7AA-44A3-AEA6-232EC3871294}.Release|Any CPU.Build.0 = Release|Any CPU
-		{295472B5-77DC-4DBD-A100-3F46B2568886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{295472B5-77DC-4DBD-A100-3F46B2568886}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{295472B5-77DC-4DBD-A100-3F46B2568886}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{295472B5-77DC-4DBD-A100-3F46B2568886}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
