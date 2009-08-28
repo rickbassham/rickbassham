@@ -1,0 +1,51 @@
+API:GetSeries
+This interface allows you to find the id of a series based on its name.
+
+Location
+	<mirrorpath>/api/GetSeries.php?seriesname=<seriesname>
+	<mirrorpath>/api/GetSeries.php?seriesname=<seriesname>&language=<language>
+
+Parameters
+	<seriesname>
+	This is the string you want to search for. If you search for "Lost", the
+	first 10 series that include the word "Lost" in their name will be returned.
+	If there is an exact match for the parameter, it will be the first result
+	returned.
+	<language>
+	This is the abbreviation for the language you want to search in. This may
+	also be set to all, which will search ALL translations for <seriesname>. If
+	omitted, it will default to English.
+
+Example Results
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<Data>
+	  <Series>
+		 <seriesid>73739</seriesid>
+		 <language>en</language>
+		 <SeriesName>Lost</SeriesName>
+		 <banner>graphical/24313-g2.jpg</banner>
+		 <Overview>After Oceanic Air flight 815...</Overview>
+		 <FirstAired>2004-09-22</FirstAired>
+		 <IMDB_ID>tt0411008</IMDB_ID>
+		 <zap2it_id>SH672362</zap2it_id>
+		 <id>73739</id>
+	  </Series>
+	  <Series>
+		 <seriesid>73831</seriesid>
+		 <language>en</language>
+		 <SeriesName>Lost Treasures of NFL Films</SeriesName>
+		 <Overview>Since 1962, Steve Sabol has been an employee...</Overview>      
+		 <FirstAired>1999-09-01</FirstAired>
+		 <id>73831</id>
+	  </Series>
+	  <Series>
+		 <seriesid>72923</seriesid>
+		 <language>en</language>
+		 <SeriesName>Lost in Space</SeriesName>
+		 <banner>graphical/72923-g.jpg</banner>
+		 <Overview>Even today, the 1960's television show....</Overview>
+		 <FirstAired>1965-09-01</FirstAired>
+		 <zap2it_id>SH002675</zap2it_id>
+		 <id>72923</id>
+	  </Series>
+	</Data>

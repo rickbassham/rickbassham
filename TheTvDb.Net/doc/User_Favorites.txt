@@ -1,0 +1,33 @@
+API:User_Favorites
+This interface returns the favorite series for a user. It also allows client
+software to add and remove favorites for a user.
+
+Location
+	<mirrorpath>/api/User_Favorites.php?accountid=<accountidentifier>
+	<mirrorpath>/api/User_Favorites.php?accountid=<accountidentifier>&type=<type>&seriesid=<seriesid>
+
+Parameters
+	<accountidentifier>
+	This is the unique identifier assigned to every user. They can access this
+	value by visiting the account settings page on the site. This is a 16
+	character alphanumeric string, but you should program your applications to
+	handle id strings up to 32 characters in length.
+	<type>
+	This is an optional field. If set, it should be either add or remove. Add
+	will add <seriesid> to the user's favorites list, while Remove will
+	remove <seriesid> from their list. If this field is not passed, the list is
+	just returned without any modifications.
+	<seriesid>
+	This is a required field ONLY when <type> is set. This is the id of the
+	series you're adding or removing for the user.
+
+Example Results
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<Favorites>
+	  <Series>73067</Series>
+	  <Series>78957</Series>
+	  <Series>75340</Series>
+	  <Series>72218</Series>
+	  <Series>73244</Series>
+	  <Series>75397</Series>
+	</Favorites>

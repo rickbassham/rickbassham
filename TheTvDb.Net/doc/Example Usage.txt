@@ -1,0 +1,84 @@
+Assume you have a database of TV episodes, each having a series name, season
+number, and episode number. This example will get all of the information for
+each series and keep it updated compared to the database.
+
+Development Tasks
+Step 1: Get an API key
+Generate and use your personal API Key (denoted as <apikey> for rest of
+example).
+
+Step 2: Get a list of languages
+a. Retrieve <mirrorpath>/api/<apikey>/languages.xml.
+b. Save this in your code and allow your users to select their language (denoted
+as <language> for rest of example). Note: You may also grab this dynamically
+when needed, but it'll rarely be changed.
+
+Initial Database Processing
+These steps are used to populate all of the initial series and episode data in
+your local database.
+
+Step 1: Get a list of mirrors
+a. Retrieve http://www.thetvdb.com/api/<apikey>/mirrors.xml.
+b. Create 3 arrays called xmlmirrors, bannermirrors, and zipmirrors.
+c. Separate the mirrors using the typemask field, as documented for mirrors.xml.
+d. Select a random mirror from each array (denoted as <mirrorpath_xml>,
+<mirrorpath_banners>, and <mirrorpath_zip> for rest of example.
+
+Step 2: Get the current server time
+a. Retrieve http://www.thetvdb.com/api/<apikey>/updates/.
+b. Store <Data>'s time attribute for later use (denoted as <previoustime> for
+rest of example).
+
+Step 3: Loop through and look up each series id
+a. Retrieve http://www.thetvdb.com/api/GetSeries.php?seriesname=<series name
+from your database>
+b. Optionally present results to user so they can select the match they want.
+c. Store this series id in a table in your database.
+
+Step 4: Get base information for each series
+a. Retrieve <mirrorpath_zip>/api/<apikey>/all/<language>.zip and extract
+<language>.xml and banners.xml.
+b. Process the XML data in <language>.xml and store all <Series> data.
+c. Download each series banner in banners.xml and prompt the user to see which
+they want to keep.
+Note: Make sure you record <id> from each series, since it's returned in updates
+as <Series>.
+
+Step 5: Get base information for each episode
+a. Use <language>.xml from step 3 to find and store the data associated with
+your episode.
+b. Use <filename> from results in step 5a to download the episode image from
+<mirrorpath_banners>/banners/<filename>.
+Note: Make sure you record <id> from each episode, since it's returned in
+updates as <Episode>.
+
+Future Database Processing
+These steps are used to keep your database current with the latest information.
+
+Step 1: Get a list of mirrors
+a. Retrieve http://www.thetvdb.com/api/<apikey>/mirrors.xml.
+b. Create 3 arrays called xmlmirrors, bannermirrors, and zipmirrors.
+c. Separate the mirrors using the typemask field, as documented for mirrors.xml.
+d. Select a random mirror from each array (denoted as <mirrorpath_xml>,
+<mirrorpath_banners>, and <mirrorpath_zip> for rest of example.
+
+Step 2: Get a list of all series and episode updates
+a. Using <previoustime>, determine if you need the _day, _week, or _month update
+file (denoted as <timeframe> below).
+b. Retrieve <mirrorpath_xml>/api/<apikey>/updates/seriesupdates_<timeframe>.zip
+and <mirrorpath_xml>/api/<apikey>/updates/episodeupdates_<timeframe>.zip and
+extract the update xml.
+b. Process the returned XML and loop through each series (<Series>) and episode
+(<Episode>) entry.
+
+Step 3: Update each series in the update XML
+a. Retrieve <mirrorpath_xml>/api/<apikey>/series/<seriesid>/<language>.xml.
+b. Process XML data and use to replace information in local database.
+
+Step 4: Update each episode in the update XML
+a. Retrieve <mirrorpath_xml>/api/<apikey>/episodes/<episodeid>/<language>.xml.
+b. Process XML data and use to replace information in local database.
+
+Step 5: Record <previoustime> for next update
+a. Using the XML from step 2, store <Data>'s time attribute as <previoustime>
+and use for your next call to Updates.php.

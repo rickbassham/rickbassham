@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerator", "CodeGenerator\CodeGenerator.csproj", "{2D43F256-9CF8-4AFA-BD9F-0752A571BE43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{5176D510-B642-4E13-BA9B-311B26A17BB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity.Common", "Entity.Common\Entity.Common.csproj", "{AD02A524-3C30-4176-9610-AE85FE3B7E6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D43F256-9CF8-4AFA-BD9F-0752A571BE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D43F256-9CF8-4AFA-BD9F-0752A571BE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D43F256-9CF8-4AFA-BD9F-0752A571BE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D43F256-9CF8-4AFA-BD9F-0752A571BE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5176D510-B642-4E13-BA9B-311B26A17BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5176D510-B642-4E13-BA9B-311B26A17BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5176D510-B642-4E13-BA9B-311B26A17BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5176D510-B642-4E13-BA9B-311B26A17BB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD02A524-3C30-4176-9610-AE85FE3B7E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD02A524-3C30-4176-9610-AE85FE3B7E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD02A524-3C30-4176-9610-AE85FE3B7E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD02A524-3C30-4176-9610-AE85FE3B7E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashTools", "FlashTools\FlashTools.csproj", "{ABD8C624-C8B2-4BC8-A7AE-40C4DDBCAF03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWFInfo", "SWFInfo\SWFInfo.csproj", "{3B0AFB39-99C5-4355-AD17-526F60AB65CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABD8C624-C8B2-4BC8-A7AE-40C4DDBCAF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD8C624-C8B2-4BC8-A7AE-40C4DDBCAF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD8C624-C8B2-4BC8-A7AE-40C4DDBCAF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD8C624-C8B2-4BC8-A7AE-40C4DDBCAF03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B0AFB39-99C5-4355-AD17-526F60AB65CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B0AFB39-99C5-4355-AD17-526F60AB65CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B0AFB39-99C5-4355-AD17-526F60AB65CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B0AFB39-99C5-4355-AD17-526F60AB65CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

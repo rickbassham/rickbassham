@@ -1,0 +1,38 @@
+API:User_Rating
+This interface allows you to send user ratings for series and episodes back to
+the site from your software. It returns the resultant average for the item. For
+most situations you will ignore the result.
+
+Location
+	<mirrorpath>/api/User_Rating.php?accountid=<accountidentifier>&itemtype=<itemtype>&itemid=<itemid>&rating=<rating>
+
+Parameters
+	<accountidentifier>
+	This is the unique identifier assigned to every user. They can access this
+	value by visiting the account settings page on the site. This is a 16
+	character alphanumeric string, but you should program your applications to
+	handle id strings up to 32 characters in length.
+	<itemtype>
+	This is either series or episode, depending on which one they're rating.
+	<itemid>
+	This is the series id or episode id, depending on whether they're rating a
+	series or episode.
+	<rating>
+	This is an integer value from 0 to 10. If 0 is sent, any existing user
+	ratings for this series/episode will be removed. If a value from 1 to 10 is
+	sent, that rating will be recorded for this user.
+
+Example Results
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<Data>
+	  <Series>
+		<Rating>7.5</Rating>
+	  </Series>
+	</Data>
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<Data>
+	  <Episode>
+		<Rating>6.8</Rating>
+	  </Episode>
+	</Data>

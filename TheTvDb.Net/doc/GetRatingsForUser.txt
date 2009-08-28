@@ -1,0 +1,62 @@
+API:GetRatingsForUser
+This interface returns a users rating for series and episodes.
+
+Location
+	<mirrorpath>/api/GetRatingsForUser.php?apikey=<apikey>&accountid=<accountidentifier>[&seriesid=<seriesid>]
+
+Parameters
+	<apikey>
+	This is the API key that is registered to your application.
+	<accountidentifier>
+	This is the unique identifier assigned to every user. They can access this
+	value by visiting the account settings page on the site. This is a 16
+	character alphanumeric string, but you should program your applications to
+	handle id strings up to 32 characters in length.
+	<seriesid>
+	This field is optional. If there is no value passed for this parameter the
+	API will return all series that have been rated by the user.
+	If you pass a valid seriesid the interface returns the UserRating and
+	CommunityRating for that series. It will also return each episode in that
+	series that the user has set a rating for. This will return both UserRating
+	and CommunityRating.
+
+Example Results
+	Example of all series a user has rated
+		<?xml version="1.0" encoding="UTF-8" ?> 
+		<Data>
+		  <Series>
+			<seriesid>80344</seriesid> 
+			<UserRating>7</UserRating> 
+			<CommunityRating>8.3224</CommunityRating> 
+		  </Series>
+		  <Series>
+			<seriesid>72227</seriesid> 
+			<UserRating>8</UserRating> 
+			<CommunityRating>8.3224</CommunityRating> 
+		  </Series>
+		  <Series>
+			<seriesid>75340</seriesid> 
+			<UserRating>8</UserRating> 
+			<CommunityRating>8.3224</CommunityRating> 
+		  </Series>
+		</Data>
+
+	Example with seriesid passed in
+		<?xml version="1.0" encoding="UTF-8" ?> 
+		<Data>
+		  <Series>
+			<seriesid>80348</seriesid> 
+			<UserRating>9</UserRating> 
+			<CommunityRating>8.0370</CommunityRating> 
+		  </Series>
+		  <Episode>
+			<id>341882</id> 
+			<UserRating>6</UserRating> 
+			<CommunityRating>8.0000</CommunityRating> 
+		  </Episode>
+		  <Episode>
+			<id>341881</id> 
+			<UserRating>10</UserRating> 
+			<CommunityRating>9.0000</CommunityRating> 
+		 </Episode>
+		</Data>

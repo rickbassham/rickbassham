@@ -1,0 +1,3 @@
+http://ff.1click.weather.com/weather/local/USTX0270?dayf=7&unit=s
+http://ff.1click.weather.com/weather/local/USTX0270?cc=*&unit=s
+http://ff.1click.weather.com/weather/local/USTX0270?swa=*&unit=s

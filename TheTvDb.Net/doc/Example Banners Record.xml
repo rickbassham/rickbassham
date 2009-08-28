@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Banners>
+  <Banner>
+    <id>20106</id>
+    <BannerPath>fanart/original/73739-1.jpg</BannerPath>
+    <VignettePath>fanart/vignette/73739-1.jpg</VignettePath>
+    <ThumbnailPath>_cache/fanart/original/73739-1.jpg</ThumbnailPath>
+    <BannerType>fanart</BannerType>
+    <BannerType2>1920x1080</BannerType2>
+    <Colors>|68,69,59|69,70,58|78,78,68|</Colors>
+    <Language>en</Language>
+  </Banner>
+  <Banner>
+    <id>18953</id>
+    <BannerPath>seasons/73739-2-2.jpg</BannerPath>
+    <BannerType>season</BannerType>
+    <BannerType2>season</BannerType2>
+    <Language>es</Language>
+    <Season>2</Season>
+  </Banner>
+  <Banner>
+    <id>9529</id>
+    <BannerPath>graphical/73739-g.jpg</BannerPath>
+    <BannerType>series</BannerType>
+    <BannerType2>graphical</BannerType2>
+    <Language>en</Language>
+  </Banner>
+</Banners>

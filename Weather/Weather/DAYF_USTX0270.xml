@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This document is intended only for use by authorized licensees of The  -->
+<!-- Weather Channel. Unauthorized use is prohibited.  Copyright 1995-2009, -->
+<!-- The Weather Channel Interactive, Inc.  All Rights Reserved.            -->
+<weather ver="2.0">
+  <head>
+    <locale>en_US</locale>
+    <form>MEDIUM</form>
+    <ut>F</ut>
+    <ud>mi</ud>
+    <us>mph</us>
+    <up>in</up>
+    <ur>in</ur>
+  </head>
+  <loc id="USTX0270">
+    <dnam>College Station, TX</dnam>
+    <tm>1:05 PM</tm>
+    <lat>30.62</lat>
+    <lon>-96.32</lon>
+    <sunr>7:00 AM</sunr>
+    <suns>7:53 PM</suns>
+    <zone>-5</zone>
+  </loc>
+  <dayf>
+    <lsup>8/28/09 12:12 PM CDT</lsup>
+    <day d="0" t="Friday" dt="Aug 28">
+      <hi>97</hi>
+      <low>72</low>
+      <sunr>7:00 AM</sunr>
+      <suns>7:53 PM</suns>
+      <part p="d">
+        <icon>37</icon>
+        <t>Isolated T-Storms</t>
+        <wind>
+          <s>8</s>
+          <gust>N/A</gust>
+          <d>9</d>
+          <t>N</t>
+        </wind>
+        <bt>Iso T-Storms</bt>
+        <ppcp>30</ppcp>
+        <hmid>47</hmid>
+      </part>
+      <part p="n">
+        <icon>29</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>7</s>
+          <gust>N/A</gust>
+          <d>76</d>
+          <t>ENE</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>10</ppcp>
+        <hmid>63</hmid>
+      </part>
+    </day>
+    <day d="1" t="Saturday" dt="Aug 29">
+      <hi>98</hi>
+      <low>72</low>
+      <sunr>7:00 AM</sunr>
+      <suns>7:52 PM</suns>
+      <part p="d">
+        <icon>34</icon>
+        <t>Mostly Sunny</t>
+        <wind>
+          <s>7</s>
+          <gust>N/A</gust>
+          <d>13</d>
+          <t>NNE</t>
+        </wind>
+        <bt>M Sunny</bt>
+        <ppcp>10</ppcp>
+        <hmid>49</hmid>
+      </part>
+      <part p="n">
+        <icon>29</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>6</s>
+          <gust>N/A</gust>
+          <d>51</d>
+          <t>NE</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>10</ppcp>
+        <hmid>50</hmid>
+      </part>
+    </day>
+    <day d="2" t="Sunday" dt="Aug 30">
+      <hi>96</hi>
+      <low>72</low>
+      <sunr>7:01 AM</sunr>
+      <suns>7:51 PM</suns>
+      <part p="d">
+        <icon>34</icon>
+        <t>Mostly Sunny</t>
+        <wind>
+          <s>9</s>
+          <gust>N/A</gust>
+          <d>22</d>
+          <t>NNE</t>
+        </wind>
+        <bt>M Sunny</bt>
+        <ppcp>10</ppcp>
+        <hmid>51</hmid>
+      </part>
+      <part p="n">
+        <icon>29</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>7</s>
+          <gust>N/A</gust>
+          <d>53</d>
+          <t>NE</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>10</ppcp>
+        <hmid>57</hmid>
+      </part>
+    </day>
+    <day d="3" t="Monday" dt="Aug 31">
+      <hi>95</hi>
+      <low>72</low>
+      <sunr>7:01 AM</sunr>
+      <suns>7:49 PM</suns>
+      <part p="d">
+        <icon>30</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>9</s>
+          <gust>N/A</gust>
+          <d>94</d>
+          <t>E</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>10</ppcp>
+        <hmid>49</hmid>
+      </part>
+      <part p="n">
+        <icon>29</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>5</s>
+          <gust>N/A</gust>
+          <d>101</d>
+          <t>E</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>10</ppcp>
+        <hmid>56</hmid>
+      </part>
+    </day>
+    <day d="4" t="Tuesday" dt="Sep 1">
+      <hi>96</hi>
+      <low>72</low>
+      <sunr>7:02 AM</sunr>
+      <suns>7:48 PM</suns>
+      <part p="d">
+        <icon>30</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>8</s>
+          <gust>N/A</gust>
+          <d>103</d>
+          <t>ESE</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>10</ppcp>
+        <hmid>47</hmid>
+      </part>
+      <part p="n">
+        <icon>33</icon>
+        <t>Mostly Clear</t>
+        <wind>
+          <s>4</s>
+          <gust>N/A</gust>
+          <d>113</d>
+          <t>ESE</t>
+        </wind>
+        <bt>M Clear</bt>
+        <ppcp>10</ppcp>
+        <hmid>53</hmid>
+      </part>
+    </day>
+    <day d="5" t="Wednesday" dt="Sep 2">
+      <hi>97</hi>
+      <low>72</low>
+      <sunr>7:03 AM</sunr>
+      <suns>7:47 PM</suns>
+      <part p="d">
+        <icon>32</icon>
+        <t>Sunny</t>
+        <wind>
+          <s>8</s>
+          <gust>N/A</gust>
+          <d>117</d>
+          <t>ESE</t>
+        </wind>
+        <bt>Sunny</bt>
+        <ppcp>0</ppcp>
+        <hmid>46</hmid>
+      </part>
+      <part p="n">
+        <icon>31</icon>
+        <t>Clear</t>
+        <wind>
+          <s>4</s>
+          <gust>N/A</gust>
+          <d>146</d>
+          <t>SE</t>
+        </wind>
+        <bt>Clear</bt>
+        <ppcp>0</ppcp>
+        <hmid>55</hmid>
+      </part>
+    </day>
+    <day d="6" t="Thursday" dt="Sep 3">
+      <hi>97</hi>
+      <low>73</low>
+      <sunr>7:03 AM</sunr>
+      <suns>7:46 PM</suns>
+      <part p="d">
+        <icon>30</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>8</s>
+          <gust>N/A</gust>
+          <d>151</d>
+          <t>SSE</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>10</ppcp>
+        <hmid>48</hmid>
+      </part>
+      <part p="n">
+        <icon>29</icon>
+        <t>Partly Cloudy</t>
+        <wind>
+          <s>5</s>
+          <gust>N/A</gust>
+          <d>147</d>
+          <t>SSE</t>
+        </wind>
+        <bt>P Cloudy</bt>
+        <ppcp>0</ppcp>
+        <hmid>60</hmid>
+      </part>
+    </day>
+  </dayf>
+</weather>

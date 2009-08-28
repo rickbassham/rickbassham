@@ -1,0 +1,37 @@
+This will be the format of the static interface structure and usage
+instructions. Note: If no <language>.xml is specified for a directory, en.xml
+will be returned.
+
+<mirrorpath>/api/<apikey>/
+|---- mirrors.xml
+|---- languages.xml
+|
+|---- series/
+|     |---- <seriesid>/
+|           |---- <language>.xml  (Base Series Record)
+|           |---- banners.xml  (All banners related to this series)
+|           |---- actors.xml  (All actor information for this series)
+|           |
+|           |---- all/
+|           |     |---- <language>.xml  (Full Series Record)
+|           |     |---- <language>.zip  (Zipped version of Full Series Record, banners.xml, and actors.xml)
+|           |
+|           |---- default/  (sorts using the default ordering method)
+|           |     |---- <season#>/<episode#>/
+|           |           |---- <language>.xml  (Base Episode Record)
+|           |
+|           |---- dvd/  (sorts using the dvd ordering method)
+|           |     |---- <season#>/<episode#>/
+|           |           |---- <language>.xml  (Base Episode Record)
+|           |
+|           |---- absolute/  (sorts using the absolute ordering method)
+|                 |---- <absolute#>/
+|                   |---- <language>.xml  (Base Episode Record)
+|
+|---- episodes
+|     |---- <episodeid>/  (will return en.xml by default)
+|           |---- <language>.xml  (Base Episode Record)
+|
+|---- (updates)
+      |---- updates_<timeframe>.xml
+      |---- updates_<timeframe>.zip

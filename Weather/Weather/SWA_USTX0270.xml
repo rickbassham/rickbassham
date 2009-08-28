@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This document is intended only for use by authorized licensees of The  -->
+<!-- Weather Channel. Unauthorized use is prohibited.  Copyright 1995-2009, -->
+<!-- The Weather Channel Interactive, Inc.  All Rights Reserved.            -->
+<weather ver="2.0">
+  <head>
+    <locale>en_US</locale>
+    <form>MEDIUM</form>
+    <ut>F</ut>
+    <ud>mi</ud>
+    <us>mph</us>
+    <up>in</up>
+    <ur>in</ur>
+  </head>
+  <loc id="USTX0270">
+    <dnam>College Station, TX</dnam>
+    <tm>1:05 PM</tm>
+    <lat>30.62</lat>
+    <lon>-96.32</lon>
+    <sunr>7:00 AM</sunr>
+    <suns>7:53 PM</suns>
+    <zone>-5</zone>
+  </loc>
+</weather>

@@ -1,0 +1,24 @@
+API:User_PreferredLanguage
+This interface returns the preferred language for each user. If the user has
+specified their preferred language in their account settings, this interface
+will return that data. Otherwise it will return English.
+
+Location
+	<mirrorpath>/api/User_PreferredLanguage.php?accountid=<accountidentifier>
+
+Parameters
+	<accountidentifier>
+	This is the unique identifier assigned to every user. They can access this
+	value by visiting the account settings page on the site. This is a 16
+	character alphanumeric string, but you should program your applications to
+	handle id strings up to 32 characters in length.
+
+Example Results
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<Languages>
+	  <Language>
+		<id>7</id>
+		<abbreviation>en</abbreviation>
+		<name>English</name>
+	  </Language>
+	</Languages>
