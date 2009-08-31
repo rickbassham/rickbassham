@@ -6,58 +6,10 @@ using System.Xml.Serialization;
 using System.Globalization;
 using System.Net.Sockets;
 using System.IO;
+using System.Net.NetworkInformation;
 
 namespace ComputerManager
 {
-    public enum Status
-    {
-        On,
-        Off,
-        Unknown,
-    }
-
-    public class Group
-    {
-        private string _name;
-        private List<Computer> _computers;
-
-        public Group()
-            : this(null)
-        {
-        }
-
-        public Group(string name)
-        {
-            _name = name;
-            _computers = new List<Computer>();
-        }
-
-        [XmlAttribute("name")]
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        }
-
-        public List<Computer> Computers
-        {
-            get
-            {
-                return _computers;
-            }
-            set
-            {
-                _computers = value;
-            }
-        }
-    }
-
     public class Computer
     {
         private static readonly List<char> hexChars;
@@ -107,22 +59,20 @@ namespace ComputerManager
         {
             try
             {
-                using (TcpClient client = new TcpClient())
+                Ping ping = new Ping();
+
+                byte[] buffer = new byte[32];
+
+                PingReply reply = ping.Send(_hostname, 1000, buffer, new PingOptions(2, true));
+
+                if (reply.Status == IPStatus.Success)
                 {
-                    client.Connect(_hostname, 35353);
-
-                    using (StreamWriter writer = new StreamWriter(client.GetStream()))
-                    using (StreamReader reader = new StreamReader(client.GetStream()))
-                    {
-                        writer.WriteLine("STATUS");
-
-                        if (reader.ReadLine() == "OK")
-                            return Status.On;
-                    }
+                    return Status.On;
                 }
             }
             catch
             {
+                // Ignore any exceptions...
             }
 
             return Status.Off;

@@ -36,13 +36,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Computer.cs" />
+    <Compile Include="Group.cs" />
+    <Compile Include="IDataStore.cs" />
+    <Compile Include="LocalApplicationDataStorage.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Service.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Status.cs" />
     <Compile Include="WakeOnLan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

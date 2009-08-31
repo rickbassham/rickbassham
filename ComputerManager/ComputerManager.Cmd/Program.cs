@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 using System.IO;
+using System.Net;
 
 namespace ComputerManager.Cmd
 {
@@ -14,8 +15,7 @@ namespace ComputerManager.Cmd
 
             try
             {
-                byte[] mac = WakeOnLan.GetMacAddress(new System.Net.IPAddress(
-                    new byte[] { 10, 97, 202, 41 }));
+                byte[] mac = WakeOnLan.GetMacAddress(IPAddress.Parse("10.97.202.41"));
 
                 Computer c = new Computer("localhost", mac);
 
