@@ -36,9 +36,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Computer.cs" />
-    <Compile Include="Group.cs" />
     <Compile Include="IDataStore.cs" />
     <Compile Include="LocalApplicationDataStorage.cs" />
+    <Compile Include="Netapi32.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
