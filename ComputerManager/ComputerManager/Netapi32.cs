@@ -12,6 +12,7 @@ namespace Win32
         private const uint ERROR_SUCCESS = 0;
         private const uint ERROR_MORE_DATA = 234;
 
+        [Flags]
         internal enum SV_101_TYPES : uint
         {
             SV_TYPE_WORKSTATION = 0x00000001,
@@ -61,7 +62,7 @@ namespace Win32
             [MarshalAs(System.Runtime.InteropServices.UnmanagedType.U4)]
             public UInt32 sv101_version_minor;
             [MarshalAs(System.Runtime.InteropServices.UnmanagedType.U4)]
-            public UInt32 sv101_type;
+            public SV_101_TYPES sv101_type;
             [MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)]
             public string sv101_comment;
         };
@@ -147,7 +148,7 @@ namespace Win32
                 SERVER_INFO_101 server;
                 int ret = NetServerEnum(null, 101, out buf, -1,
                     ref entriesread, ref totalentries,
-                    ServerType, Environment.UserDomainName, IntPtr.Zero);
+                    ServerType, null, IntPtr.Zero);
 
                 // if the function returned any data, fill the tree view
                 if (ret == ERROR_SUCCESS ||
