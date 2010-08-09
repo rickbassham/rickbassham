@@ -9,7 +9,7 @@ Add your content here.
 
 http://75.109.215.190:9110
 
-rtsp://75.109.215.190/axis-media/media.3gp
+[rtsp://75.109.215.190/axis-media/media.3gp cam]
 
 rtsp://75.109.215.190/axis-media/media.3gp
 
