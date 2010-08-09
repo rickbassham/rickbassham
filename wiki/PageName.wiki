@@ -11,7 +11,7 @@ http://75.109.215.190:9110
 
 [rtsp://75.109.215.190/axis-media/media.3gp cam]
 
-rtsp://75.109.215.190/axis-media/media.3gp
+<a href="rtsp://75.109.215.190/axis-media/media.3gp">Camera</a>
 
 rtsp://www.rickbassham.com:8083/stream.sdp
 
