@@ -1,0 +1,28 @@
+#summary How-To build an Ubuntu Firewall
+
+= Introduction =
+
+How-To build an Ubuntu Firewall
+
+
+= Software Needed =
+
+#shorewall6
+#autodns-dhcp
+#dhcp3-server
+#squid3
+#noip2
+#bind9
+#ssmtp
+#moblock
+#havp
+#dansguardian
+#sarg
+#clamav-freshclam
+#snort
+#ntp
+#pptpd
+#openvpn
+#logrotate
+#samba
+#upnp
