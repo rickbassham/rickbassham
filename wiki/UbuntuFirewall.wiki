@@ -5,7 +5,7 @@
 How-To build an Ubuntu Firewall
 
 
-= Software Needed =
+== Software Needed ==
 
   # shorewall6
   # autodns-dhcp
