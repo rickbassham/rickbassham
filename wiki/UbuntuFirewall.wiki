@@ -36,6 +36,6 @@ sudo reboot now
 
 == Install ==
 
-sudo apt-get install shorewall6-lite
+sudo apt-get install shorewall6 logrotate ntp openssh-server linux-igd
 
 autodns-dhcp dhcp3-server squid3 noip2 bind9 bind9utils ssmtp havp dansguardian sarg clamav-freshclam snort snort-rules-default 
