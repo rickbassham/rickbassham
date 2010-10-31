@@ -8,11 +8,9 @@ How-To build an Ubuntu Firewall
 == Software Needed ==
 
   # shorewall6
-  # autodns-dhcp
-  # dhcp3-server
+  # dnsmasq
   # squid3
   # noip2
-  # bind9
   # ssmtp
   # moblock
   # havp
