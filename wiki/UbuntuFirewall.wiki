@@ -38,6 +38,15 @@ sudo apt-get install shorewall6 logrotate ntp openssh-server linux-igd
 
 autodns-dhcp dhcp3-server squid3 noip2 bind9 bind9utils ssmtp havp dansguardian sarg clamav-freshclam snort snort-rules-default 
 
+sudo nano /etc/udev/rules.d/set-interface-names.rules
+
+{{{
+KERNEL=="eth?", SYSFS{address}=="00:30:18:a8:0b:6a", NAME="eth0"
+KERNEL=="eth?", SYSFS{address}=="00:30:18:a6:2b:12", NAME="eth1"
+KERNEL=="eth?", SYSFS{address}=="00:30:18:a6:2b:13", NAME="eth2"
+KERNEL=="eth?", SYSFS{address}=="00:30:18:a6:2b:14", NAME="eth3"
+}}}
+
 sudo nano /etc/network/interfaces
 {{{
 # The loopback network interface
