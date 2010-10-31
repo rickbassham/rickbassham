@@ -37,3 +37,14 @@ sudo reboot now
 sudo apt-get install shorewall6 logrotate ntp openssh-server linux-igd
 
 autodns-dhcp dhcp3-server squid3 noip2 bind9 bind9utils ssmtp havp dansguardian sarg clamav-freshclam snort snort-rules-default 
+
+sudo nano /etc/network/interfaces
+{{{
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
+}}}
