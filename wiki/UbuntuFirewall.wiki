@@ -4,6 +4,10 @@
 
 How-To build an Ubuntu Firewall
 
+WARNING: All of this should be done behind an existing firewall.
+
+DO NOT HOOK UP THIS SERVER TO THE INTERNET UNTIL YOUR FIREWALL IS IN PLACE.
+
 == Install Ubuntu Server ==
 
 Don't select any packages during the install, as we will install only what we need.
@@ -121,7 +125,7 @@ NTP(ACCEPT)		loc		$FW
 
 sudo /etc/init.d/shorewall restart
 
-
+At this point, your firewall is in place. You can now hook up this machine to the internet. (But test for possible intrusion points first.)
 
 
 == TODO ==
