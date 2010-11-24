@@ -91,6 +91,10 @@ interface=eth1
 expand-hosts
 domain=rickbassham.com
 dhcp-range=192.168.0.50,192.168.0.100,1h
+
+# Set the NTP time server address to be the same machine as
+# is running dnsmasq
+dhcp-option=42,0.0.0.0
 }}}
 
 sudo /etc/init.d/dnsmasq restart
@@ -114,13 +118,35 @@ cp * /etc/shorewall/
 sudo nano /etc/shorewall/interfaces
 
 {{{
-add dhcp to the loc line
+#ZONE	INTERFACE	BROADCAST	OPTIONS
+net		eth0		detect		dhcp tcpflags
+loc		eth1		detect		dhcp nosmurfs tcpflags
 }}}
 
 sudo nano /etc/shorewall/rules
 {{{
+#ACTION			SOURCE	DEST			PROTO		DEST		SOURCE  	ORIGINAL
+#													PORT		PORT(S)		DEST
 SSH(ACCEPT)		loc		$FW
 NTP(ACCEPT)		loc		$FW
+DNS(ACCEPT)		loc		$FW
+
+DNS(ACCEPT)		$FW		net
+
+DNAT			net		loc:192.168.0.5	tcp			20883
+}}}
+
+sudo nano /etc/shorewall/policy
+{{{
+#SOURCE         DEST            POLICY          LOG           BURST:LIMIT
+#                                               LEVEL
+loc             net             ACCEPT
+net             all             DROP            info
+#
+# THE FOLLOWING POLICY MUST BE LAST
+#
+all             all             REJECT          info
+
 }}}
 
 sudo /etc/init.d/shorewall restart
