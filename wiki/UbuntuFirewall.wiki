@@ -47,11 +47,7 @@ sudo apt-get upgrade
 
 sudo reboot now
 
-== Install ==
-
-sudo apt-get install shorewall6 logrotate ntp openssh-server linux-igd
-
-autodns-dhcp dhcp3-server squid3 noip2 bind9 bind9utils ssmtp havp dansguardian sarg clamav-freshclam snort snort-rules-default 
+== Setup networking ==
 
 sudo nano /etc/udev/rules.d/set-interface-names.rules
 
@@ -79,3 +75,9 @@ netmask 255.255.255.0
 
 
 }}}
+
+== Install ==
+
+sudo apt-get install shorewall6 logrotate ntp openssh-server dnsmasq
+
+dnsmasq squid3 noip2 bind9 bind9utils ssmtp havp dansguardian sarg clamav-freshclam snort snort-rules-default linux-igd
