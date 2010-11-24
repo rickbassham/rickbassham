@@ -18,7 +18,7 @@ Format your hard drive as follows:
 
 /tmp and /var should be marked nosuid and noexec for security.
 
-
+[https://help.ubuntu.com/10.04/serverguide/C/automatic-updates.html Automatic Updates]
 
 == Software Needed ==
 
@@ -71,4 +71,11 @@ iface lo inet loopback
 # The primary network interface
 auto eth0
 iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+address 192.168.0.1
+netmask 255.255.255.0
+
+
 }}}
