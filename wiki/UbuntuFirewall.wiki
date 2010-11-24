@@ -4,6 +4,21 @@
 
 How-To build an Ubuntu Firewall
 
+== Install Ubuntu Server ==
+
+Don't select any packages during the install, as we will install only what we need.
+
+Format your hard drive as follows:
+* swap - 512MB
+* /boot - 128MB
+* / - 8GB
+* /tmp - 8GB
+* /home - 8GB
+* /var - Everything Else (This is where logs and data go.)
+
+/tmp and /var should be marked nosuid and noexec for security.
+
+
 
 == Software Needed ==
 
