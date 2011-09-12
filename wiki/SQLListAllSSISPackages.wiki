@@ -1,7 +1,7 @@
 #summary List all SSIS packages on the server.
 #labels SQL
 
-{{{
+<code language="SQL">
 Declare @destServer sysname
 
 Select @destServer = 'SERVER'
@@ -43,4 +43,4 @@ case when datalength(folders.path) > 0 then '\' + folders.path + '\' + p.name
 from msdb.dbo.sysdtspackages90 p
 inner join folders on folders.folderid = p.folderid
 order by path
-}}}
+</code>
