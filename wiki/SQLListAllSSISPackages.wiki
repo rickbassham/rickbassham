@@ -1,7 +1,7 @@
 #summary List all SSIS packages on the server.
 #labels SQL
 
-<code language="SQL">
+<code language="sql">
 Declare @destServer sysname
 
 Select @destServer = 'SERVER'
