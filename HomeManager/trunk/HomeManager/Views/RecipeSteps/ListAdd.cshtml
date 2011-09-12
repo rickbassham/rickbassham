@@ -1,0 +1,33 @@
+﻿@model HomeManager.Models.Recipe
+
+@{
+    Layout = "";
+}
+
+<div id="listaddstep">
+@using (Ajax.BeginForm("Add", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddstep", OnSuccess = "postAddStep" })) {
+@Html.Hidden("RecipeId", Model.Id)
+<ol id="recipesteps" class="sortable">
+    @foreach (HomeManager.Models.RecipeStep step in Model.RecipeSteps.OrderBy(s => s.Rank)) {
+        <li class="recipestep">
+            @step.Description @Ajax.ActionLink("Delete", "RemoveFromRecipe", new { recipeId = Model.Id, stepId = step.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddstep", OnSuccess = "postAddStep" })
+        </li>
+    }
+    <li>
+        @Html.TextArea("StepDescription") <input type="submit" id="AddStep" value="Add" />
+    </li>
+</ol>
+}
+</div>
+<script type="text/javascript">
+    function postAddStep() {
+        load();
+
+        $('#StepDescription').val('');
+
+        $('#StepDescription').focus();
+    }
+    $(document).ready(function () {
+        postAddStep();
+    });
+</script>

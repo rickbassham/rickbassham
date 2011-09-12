@@ -1,0 +1,15 @@
+﻿@model HomeManager.Models.Recipe
+
+@{
+    Layout = "";
+}
+
+<div id="liststep">
+<ol id="recipesteps">
+    @foreach (HomeManager.Models.RecipeStep step in Model.RecipeSteps.OrderBy(s => s.Rank)) {
+        <li class="recipestep">
+            @step.Description
+        </li>
+    }
+</ol>
+</div>

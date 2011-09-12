@@ -1,0 +1,26 @@
+@model HomeManager.Models.RecipeNote
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RecipeNote</legend>
+
+    <div class="display-label">Rank</div>
+    <div class="display-field">@Model.Rank</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">Recipe</div>
+    <div class="display-field">@(Model.Recipe == null ? "None" : Model.Recipe.Name)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

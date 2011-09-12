@@ -1,0 +1,18 @@
+﻿@model HomeManager.Models.ShoppingListItem
+
+@{
+    Layout = "";
+    
+    string id = string.Concat("shoppinglistitem_", Model.Id);
+}
+
+<li id="@id">
+@using (Ajax.BeginForm("Edit", "ShoppingListItems", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = id, OnComplete = "load" }))
+{
+        @Html.HiddenFor(model => model.Id, new { id = Model.Id })
+        <span class="amount">@Mehroz.Fraction.ToFraction(Model.Amount).ToString()</span>
+        <span class="unit">@Model.Unit</span>
+        <span class="item">@Model.Item.Name</span>
+        <span style="display: inline-block" class="ui-icon ui-icon-pencil ui-state-default ui-corner-all"><input type="submit" value="Edit" class="ui-icon" /></span>
+}
+</li>

@@ -1,0 +1,26 @@
+@model HomeManager.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Category</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">CategoryType</div>
+    <div class="display-field">@(Model.CategoryType == null ? "None" : Model.CategoryType.Name)</div>
+
+    <div class="display-label">Recipes</div>
+    <div class="display-field">@(Model.Recipes == null ? "None" : Model.Recipes.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

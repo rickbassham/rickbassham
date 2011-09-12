@@ -1,0 +1,42 @@
+@model HomeManager.Models.Ingredient
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Amount)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Amount)
+    @Html.ValidationMessageFor(model => model.Amount)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Unit)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Unit)
+    @Html.ValidationMessageFor(model => model.Unit)
+</div>
+
+<div class="editor-label">
+    Item
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.ItemId, ((IEnumerable<HomeManager.Models.Item>)ViewBag.PossibleItems).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.ItemId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.ItemId)
+</div>
+<div class="editor-label">
+    Recipe
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.RecipeId, ((IEnumerable<HomeManager.Models.Recipe>)ViewBag.PossibleRecipes).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.RecipeId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.RecipeId)
+</div>

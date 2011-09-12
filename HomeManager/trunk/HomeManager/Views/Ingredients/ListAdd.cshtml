@@ -1,0 +1,49 @@
+﻿@model HomeManager.Models.Recipe
+
+@{
+    Layout = "";
+}
+
+<div id="listaddingredient">
+@using (Ajax.BeginForm("Add", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddingredient", OnSuccess = "postAddIngredient" })) {
+@Html.Hidden("RecipeId", Model.Id)
+<ul>
+    @foreach (HomeManager.Models.Ingredient ingredient in Model.Ingredients)
+    {
+        <li>
+            @Mehroz.Fraction.ToFraction(ingredient.Amount).ToString() @ingredient.Unit @ingredient.Item.Name @Ajax.ActionLink("Delete", "RemoveFromRecipe", new { recipeId = Model.Id, ingredientId = ingredient.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddingredient", OnSuccess = "postAddIngredient" })
+        </li>
+    }
+    <li>
+        <div>
+            <div class="listadditem">
+                @Html.Label("Amount")
+                @Html.TextBox("Amount")
+            </div>
+            <div class="listadditem">
+                @Html.Label("Unit")
+                @Html.TextBox("Unit", "", new { @class = "unit" })
+            </div>
+            <div class="listadditem">
+                @Html.Label("Item")
+                @Html.TextBox("Item", "", new { @class = "item" })
+            </div>
+            <input type="submit" id="AddIngredient" value="Add" />
+        </div>
+    </li>
+</ul>
+}
+</div>
+
+<script type="text/javascript">
+    function postAddIngredient() {
+        $('#Amount').val('');
+        $('#Unit').val('');
+        $('#Item').val('');
+
+        $('#Amount').focus();
+    }
+    $(document).ready(function () {
+        postAddIngredient();
+    });
+</script>

@@ -1,0 +1,27 @@
+﻿@model HomeManager.Models.CalendarDetailModel
+@using HomeManager;
+
+@{
+    Layout = "";
+}
+
+<h3>@Html.ActionLink(Model.Recipe.Name, "Details", new { id = Model.Recipe.Id })</h3>
+
+@Ajax.ActionLink("Remove", "RemoveRecipe", "Menu", new { recipeId = Model.Recipe.Id, unixDate = Model.Date.ToUnixTimestamp() }, new AjaxOptions { HttpMethod = "Post", OnComplete = "recipeRemoved" }, new { Class = "button" })
+
+<img src="/Recipe/Image/@Model.Recipe.Id" alt="@Model.Recipe.Name" />
+
+<p>@Model.Recipe.Description</p>
+
+<h3>Ingredients:</h3>
+@{ Html.RenderAction("List", "Ingredient", new { recipeId = Model.Recipe.Id }); }
+
+<h3>Directions:</h3>
+@{ Html.RenderAction("List", "RecipeStep", new { recipeId = Model.Recipe.Id }); }
+
+<script type="text/javascript">
+    function recipeRemoved() {
+        $('#calendar').fullCalendar('refetchEvents');
+        $('#recipeDialog').dialog('close');
+    }
+</script>

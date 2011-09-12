@@ -1,0 +1,33 @@
+﻿@model HomeManager.Models.ShoppingList
+
+@{
+    Layout = "";
+}
+
+<div id="listadditem">
+@using (Ajax.BeginForm("Add", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listadditem", OnSuccess = "postAddItem" })) {
+@Html.Hidden("ShoppingListId", Model.Id)
+<ol id="shoppinglistitems" class="sortable">
+    @foreach (HomeManager.Models.ShoppingListItem item in Model.ShoppingListItems.OrderBy(s => s.Rank)) {
+        <li id="@item.Id" class="recipestep">
+            @item.Amount @item.Unit @item.Item.Name @Ajax.ActionLink("Delete", "RemoveFromShoppingList", new { shoppingListId = Model.Id, shoppingListItemId = item.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listadditem", OnSuccess = "postAddItem" })
+        </li>
+    }
+    <li>
+        @Html.TextBox("itemString") <input type="submit" id="AddItem" value="Add" />
+    </li>
+</ol>
+}
+</div>
+<script type="text/javascript">
+    function postAddItem() {
+        load();
+        setSortable();
+
+        $('#itemString').val('');
+        $('#itemString').focus();
+    }
+    $(document).ready(function () {
+        postAddItem();
+    });
+</script>

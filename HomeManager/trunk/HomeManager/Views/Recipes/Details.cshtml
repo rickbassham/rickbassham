@@ -1,0 +1,42 @@
+﻿@model HomeManager.Models.Recipe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <div>
+        <h3>@Model.Name</h3>
+
+        <div class="display-field">@Model.Description</div>
+
+        <table>
+            <thead>
+                <tr><th>Prep Time:</th><th>Cook Time:</th><th>Ready In:</th></tr>
+                <tr>
+                    <td>@Model.PrepTime</td>
+                    <td>@Model.CookTime</td>
+                    <td></td>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="display-label">Rating</div>
+        <div class="display-field">@Model.Rating</div>
+
+        <div class="display-label">Source</div>
+        <div class="display-field">@Model.Source</div>
+
+        <div class="display-label">Servings</div>
+        <div class="display-field">@Model.Servings</div>
+
+        <h3>Ingredients:</h3>
+        @{ Html.RenderAction("ListAdd", "Ingredients", new { recipeId = Model.Id }); }
+
+        <h3>Directions:</h3>
+        @{ Html.RenderAction("ListAdd", "RecipeSteps", new { recipeId = Model.Id }); }
+    </div>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

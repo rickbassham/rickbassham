@@ -1,0 +1,26 @@
+@model HomeManager.Models.MenuItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MenuItem</legend>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+
+    <div class="display-label">Meal</div>
+    <div class="display-field">@Model.Meal</div>
+
+    <div class="display-label">Recipes</div>
+    <div class="display-field">@(Model.Recipes == null ? "None" : Model.Recipes.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

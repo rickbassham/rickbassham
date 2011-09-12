@@ -1,0 +1,13 @@
+﻿@model HomeManager.Models.Recipe
+
+@{
+    Layout = "";
+}
+
+<div id="listingredient">
+<ul>
+    @foreach (HomeManager.Models.Ingredient ingredient in Model.Ingredients) {
+        <li>@Mehroz.Fraction.ToFraction(ingredient.Amount).ToString() @ingredient.Unit @ingredient.Item.Name</li>
+    }
+</ul>
+</div>

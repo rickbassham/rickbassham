@@ -1,0 +1,11 @@
+﻿@model HomeManager.Models.ShoppingList
+
+@{
+    Layout = "";
+}
+
+<ul id="shoppinglistitems">
+@foreach (HomeManager.Models.ShoppingListItem item in Model.ShoppingListItems.OrderBy(i => i.Rank)) {
+    Html.RenderAction("Details", "ShoppingListItems", new { id = item.Id });
+}
+</ul>

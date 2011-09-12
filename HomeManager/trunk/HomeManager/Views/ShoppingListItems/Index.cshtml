@@ -1,0 +1,59 @@
+@model IEnumerable<HomeManager.Models.ShoppingListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Unit
+        </th>
+        <th>
+            Rank
+        </th>
+        <th>
+            ShoppingList
+        </th>
+        <th>
+            Item
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+			@String.Format("{0:F}", item.Amount)
+        </td>
+        <td>
+			@item.Unit
+        </td>
+        <td>
+			@item.Rank
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.ShoppingList).ToString()
+        </td>
+        <td>
+			@(item.Item == null ? "None" : item.Item.Name)
+        </td>
+    </tr>
+}
+
+</table>
+
+

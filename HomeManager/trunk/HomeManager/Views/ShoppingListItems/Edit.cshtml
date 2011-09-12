@@ -1,0 +1,19 @@
+﻿@model HomeManager.Models.ShoppingListItem
+@{
+    Layout = "";
+    
+    string id = string.Concat("shoppinglistitem_", Model.Id);
+}
+
+<li id="@id">
+@using (Ajax.BeginForm("Edit", "ShoppingListItems", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = id, OnComplete = "load" }))
+{
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Rank)
+        @Html.HiddenFor(model => model.ItemId)
+    <table>
+        <tr><th>@Html.LabelFor(model => model.Amount)</th><th>@Html.LabelFor(model => model.Unit)</th><th>Item</th><th></th></tr>
+        <tr><td>@Html.EditorFor(model => model.Amount)</td><td>@Html.EditorFor(model => model.Unit)</td><td>@Model.Item.Name</td><td><input type="submit" value="Save" /></td></tr>
+    </table>
+}
+</li>

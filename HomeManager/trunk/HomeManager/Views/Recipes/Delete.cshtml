@@ -1,0 +1,59 @@
+@model HomeManager.Models.Recipe
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Recipe</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">Rating</div>
+    <div class="display-field">@Model.Rating</div>
+
+    <div class="display-label">PrepTime</div>
+    <div class="display-field">@Model.PrepTime</div>
+
+    <div class="display-label">InactivePrepTime</div>
+    <div class="display-field">@Model.InactivePrepTime</div>
+
+    <div class="display-label">CookTime</div>
+    <div class="display-field">@Model.CookTime</div>
+
+    <div class="display-label">Source</div>
+    <div class="display-field">@Model.Source</div>
+
+    <div class="display-label">Servings</div>
+    <div class="display-field">@Model.Servings</div>
+
+    <div class="display-label">Categories</div>
+    <div class="display-field">@(Model.Categories == null ? "None" : Model.Categories.Count.ToString())</div>
+
+    <div class="display-label">RecipeSteps</div>
+    <div class="display-field">@(Model.RecipeSteps == null ? "None" : Model.RecipeSteps.Count.ToString())</div>
+
+    <div class="display-label">RecipeNotes</div>
+    <div class="display-field">@(Model.RecipeNotes == null ? "None" : Model.RecipeNotes.Count.ToString())</div>
+
+    <div class="display-label">MenuItems</div>
+    <div class="display-field">@(Model.MenuItems == null ? "None" : Model.MenuItems.Count.ToString())</div>
+
+    <div class="display-label">Ingredients</div>
+    <div class="display-field">@(Model.Ingredients == null ? "None" : Model.Ingredients.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+
