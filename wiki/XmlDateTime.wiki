@@ -1,0 +1,5 @@
+#summary String format for XML date time.
+
+{{{
+DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz")
+}}}
