@@ -5,7 +5,9 @@
 }
 
 <div data-role="header">
-    <h2>@Model.Store</h2><a href="@Url.Action("Clear", new { id = Model.Id })" data-ajax="false">Clear</a>
+    <h2>@Model.Store</h2>
+    <a href="@Url.Action("Clear", new { id = Model.Id })" data-ajax="false">Clear</a>
+    <a href="@Url.Action("Shop", new { id = Model.Id })" data-ajax="false">Shop</a>
 </div>
 
 <div data-role="content">

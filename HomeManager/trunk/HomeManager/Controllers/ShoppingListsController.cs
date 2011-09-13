@@ -179,5 +179,11 @@ namespace HomeManager.Controllers
 
             return RedirectToAction("Details", new { id = id });
         }
+
+        public ViewResult Shop(int id)
+        {
+            ShoppingList shoppinglist = context.ShoppingLists.Single(x => x.Id == id);
+            return View(shoppinglist);
+        }
     }
 }
