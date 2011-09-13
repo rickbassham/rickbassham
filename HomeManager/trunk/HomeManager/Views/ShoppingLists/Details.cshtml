@@ -4,18 +4,19 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.Store</h2>
+<div data-role="header">
+    <h2>@Model.Store</h2>
+</div>
 
-<div id="shoppinglist">
+<div data-role="content">
 @{
     Html.RenderAction("ListAdd", "ShoppingListItems", new { ShoppingListId = Model.Id });
 }
 </div>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+<div data-role="footer">
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
 
 @section Head{
     <script type="text/javascript">

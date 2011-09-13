@@ -4,7 +4,10 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div data-role="header">
+    <h2>Edit @(Model == null || string.IsNullOrWhiteSpace(Model.Name) ? "Recipe" : Model.Name)</h2>
+</div>
+<div data-role="content">
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -20,6 +23,8 @@
     </fieldset>
 }
 
-<div>
+</div>
+
+<div data-role="footer">
     @Html.ActionLink("Back to List", "Index")
 </div>

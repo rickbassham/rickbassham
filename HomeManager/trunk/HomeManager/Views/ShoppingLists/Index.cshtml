@@ -4,31 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div data-role="header">
+    <h2>Shopping Lists</h2>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th></th>
-        <th>
-            Store
-        </th>
-    </tr>
+<div data-role="content">
+    <ul data-role="listview">
+        <li>@Html.ActionLink("Create New List", "Create")</li>
+    @foreach (var item in Model) {
+        <li>
+            @Html.ActionLink(item.Store, "Details", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new RouteValueDictionary { { "id", item.Id } }, new Dictionary<string, object> { { "data-role", "button" }, { "data-icon", "delete" } })
+        </li>
+    }
+    </ul>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "ui-icon ui-icon-pencil", title = "Edit" })
-            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "ui-icon ui-icon-plus", title = "Details" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "ui-icon ui-icon-minus", title = "Delete" })
-        </td>
-        <td>
-            @item.Store
-        </td>
-    </tr>
-}
-
-</table>
-
+<div data-role="footer">
+    @Html.ActionLink("Home", "Index", "Home")
+</div>

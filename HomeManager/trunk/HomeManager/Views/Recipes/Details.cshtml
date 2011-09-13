@@ -4,27 +4,22 @@
     ViewBag.Title = "Details";
 }
 
+<div data-role="header">
+    <h2>@Model.Name</h2>
+</div>
+<div data-role="content">
     <div>
-        <h3>@Model.Name</h3>
-
         <div class="display-field">@Model.Description</div>
 
-        <table>
-            <thead>
-                <tr><th>Prep Time:</th><th>Cook Time:</th><th>Ready In:</th></tr>
-                <tr>
-                    <td>@Model.PrepTime</td>
-                    <td>@Model.CookTime</td>
-                    <td></td>
-                </tr>
-            </thead>
-        </table>
+        <a href="#" data-role="button" data-inline="true">Prep Time: @Model.PrepTime</a>
+        <a href="#" data-role="button" data-inline="true">Cook Time: @Model.CookTime</a>
+        <a href="#" data-role="button" data-inline="true">Ready In: @(Model.PrepTime + Model.CookTime)</a>
+
+        <a href="@Model.Source" data-role="button">Source</a>
 
         <div class="display-label">Rating</div>
         <div class="display-field">@Model.Rating</div>
 
-        <div class="display-label">Source</div>
-        <div class="display-field">@Model.Source</div>
 
         <div class="display-label">Servings</div>
         <div class="display-field">@Model.Servings</div>
@@ -35,8 +30,8 @@
         <h3>Directions:</h3>
         @{ Html.RenderAction("ListAdd", "RecipeSteps", new { recipeId = Model.Id }); }
     </div>
-
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+</div>
+<div data-role="footer" class="ui-bar">
+    @Html.ActionLink("Edit", "Edit", new RouteValueDictionary { { "id", Model.Id } }, new Dictionary<string, object> { { "data-role", "button" } }) |
+    @Html.ActionLink("Back to List", "Index", null, new Dictionary<string, object> { { "data-role", "button" } })
+</div>

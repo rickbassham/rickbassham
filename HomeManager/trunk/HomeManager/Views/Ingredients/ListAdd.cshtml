@@ -7,11 +7,11 @@
 <div id="listaddingredient">
 @using (Ajax.BeginForm("Add", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddingredient", OnSuccess = "postAddIngredient" })) {
 @Html.Hidden("RecipeId", Model.Id)
-<ul>
+<ul data-role="listview" data-split-icon="delete">
     @foreach (HomeManager.Models.Ingredient ingredient in Model.Ingredients)
     {
         <li>
-            @Mehroz.Fraction.ToFraction(ingredient.Amount).ToString() @ingredient.Unit @ingredient.Item.Name @Ajax.ActionLink("Delete", "RemoveFromRecipe", new { recipeId = Model.Id, ingredientId = ingredient.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddingredient", OnSuccess = "postAddIngredient" })
+            <a href="#">@Mehroz.Fraction.ToFraction(ingredient.Amount).ToString() @ingredient.Unit @ingredient.Item.Name</a> @Ajax.ActionLink("Delete", "RemoveFromRecipe", new { recipeId = Model.Id, ingredientId = ingredient.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddingredient", OnSuccess = "postAddIngredient" })
         </li>
     }
     <li>

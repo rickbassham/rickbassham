@@ -13,11 +13,11 @@
             $('#calendar').fullCalendar({
                 theme: true,
                 defaultView: 'basicWeek',
-                events: '/Menus/GetMeals',
+                events: '@Url.Action("GetMeals", "Menus")',
                 height: 200,
                 eventClick: function (calEvent, jsEvent, view) {
                     $('#recipeDialog').load(
-                        '/Recipes/CalendarDetail',
+                        '@Url.Action("CalendarDetail", "Recipes")',
                         {
                             recipeId: calEvent.id,
                             unixDate: new Date(calEvent.start).getTime()
@@ -34,7 +34,7 @@
                     eventObject.date = date;
 
                     $.getJSON(
-                        '/Menus/AddRecipe',
+                        '@Url.Action("AddRecipe", "Menus")',
                         {
                             recipeId: eventObject.id,
                             unixDate: new Date(eventObject.date).getTime()

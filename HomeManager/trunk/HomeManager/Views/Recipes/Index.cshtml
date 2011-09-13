@@ -4,55 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div data-role="header">
+    <h2>Recipes</h2>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th></th>
-        <th>
-            Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Rating
-        </th>
-        <th>
-            PrepTime
-        </th>
-        <th>
-            CookTime
-        </th>
-    </tr>
+<div data-role="content">
+    <ul data-role="listview">
+        <li>@Html.ActionLink("Create New Recipe", "Create")</li>
+    @foreach (var item in Model) {
+        <li>
+            @Html.ActionLink(item.Name, "Details", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new RouteValueDictionary { { "id", item.Id } }, new Dictionary<string, object> { { "data-role", "button" }, { "data-icon", "delete" } })
+        </li>
+    }
+    </ul>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td style="white-space: nowrap">
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "ui-icon ui-icon-pencil", title = "Edit" })
-            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "ui-icon ui-icon-plus", title = "Details" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "ui-icon ui-icon-minus", title = "Delete" })
-        </td>
-        <td style="white-space: nowrap">
-            @item.Name
-        </td>
-        <td>
-            @item.Description
-        </td>
-        <td>
-            @item.Rating
-        </td>
-        <td>
-            @item.PrepTime
-        </td>
-        <td>
-            @item.CookTime
-        </td>
-    </tr>
-}
-
-</table>
-
+<div data-role="footer">
+    @Html.ActionLink("Home", "Index", "Home")
+</div>
