@@ -306,10 +306,18 @@
 				{
 					return IndeterminateTypeName(this.m_Numerator);
 				}
-				else
-				{
-					return this.m_Numerator.ToString() + "/" + this.m_Denominator.ToString();
-				}
+                else if (this.m_Numerator > this.m_Denominator)
+                {
+                    long wholeNumber = this.m_Numerator / this.m_Denominator;
+
+                    Fraction remainder = this - wholeNumber;
+
+                    return string.Format("{0} {1}/{2}", wholeNumber, remainder.m_Numerator, remainder.m_Denominator);
+                }
+                else
+                {
+                    return this.m_Numerator.ToString() + "/" + this.m_Denominator.ToString();
+                }
 			}
 			#endregion
 

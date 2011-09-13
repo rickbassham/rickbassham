@@ -5,7 +5,7 @@
 }
 
 <div data-role="header">
-    <h2>@Model.Store</h2>
+    <h2>@Model.Store</h2><a href="@Url.Action("Clear", new { id = Model.Id })" data-ajax="false">Clear</a>
 </div>
 
 <div data-role="content">
@@ -17,43 +17,3 @@
 <div data-role="footer">
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Head{
-    <script type="text/javascript">
-        function setSortable() {
-            $('#shoppinglistitems').sortable({
-                placeholder: 'ui-state-highlight',
-                update: function (event, ui) {
-                    var idAttr = $(ui.item).attr('id');
-                    var listItems = $(this).sortable('toArray');
-                    var rank = -1;
-
-                    var id = idAttr.substring(idAttr.indexOf('_') + 1);
-                    for (var i = 0; i < listItems.length; i++) {
-                        if (listItems[i] == idAttr) {
-                            rank = i;
-                            break;
-                        }
-                    }
-
-                    if (rank >= 0) {
-                        $('#shoppinglist').load(
-                            '/ShoppingListItems/UpdateRank',
-                            {
-                                id: id,
-                                rank: rank
-                            },
-                            function () {
-                                load();
-                                setSortable();
-                            }
-                        );
-                    }
-                }
-            });
-        }
-        $(document).ready(function () {
-            setSortable();
-        });
-    </script>
-}

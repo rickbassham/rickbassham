@@ -195,17 +195,6 @@ namespace HomeManager.Controllers
             return RedirectToAction("Details", new { id = r.Id });
         }
 
-        public ActionResult CalendarDetail(int recipeId, long unixDate)
-        {
-            DateTime date = unixDate.FromUnixTimestamp();
-
-            MenuItem menuItem = (from mi in context.MenuItems where mi.Date == date.Date select mi).Single();
-
-            Recipe r = (from recipe in context.Recipes where recipe.Id == recipeId select recipe).Single();
-
-            return View(new CalendarDetailModel { Date = date, Recipe = r });
-        }
-
         [ChildActionOnly]
         public ActionResult List()
         {

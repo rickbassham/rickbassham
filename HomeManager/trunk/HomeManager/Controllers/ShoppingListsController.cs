@@ -105,8 +105,7 @@ namespace HomeManager.Controllers
             DateTime endDate = endTimestamp.FromUnixTimestamp();
 
             List<Ingredient> ingredients = (from m in context.MenuItems
-                                            from r in m.Recipes
-                                            from i in r.Ingredients
+                                            from i in m.Recipe.Ingredients
                                             where m.Date >= startDate && m.Date <= endDate
                                             select i).ToList();
 
@@ -162,6 +161,23 @@ namespace HomeManager.Controllers
             context.SaveChanges();
 
             return RedirectToAction("Details", new { id = shoppingList.Id });
+        }
+
+        public ActionResult Clear(int id)
+        {
+            var list = context.ShoppingLists.Where(l => l.Id == id).FirstOrDefault();
+
+            if (list != null)
+            {
+                foreach (var item in list.ShoppingListItems.ToList())
+                {
+                    context.ShoppingListItems.Remove(item);
+                }
+
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Details", new { id = id });
         }
     }
 }

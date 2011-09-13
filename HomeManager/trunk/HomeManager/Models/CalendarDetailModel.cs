@@ -7,7 +7,8 @@ namespace HomeManager.Models
 {
     public class CalendarDetailModel
     {
-        public Recipe Recipe { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime StartDate { get; set; }
+        public IDictionary<DateTime, List<Recipe>> ScheduledRecipes { get; set; }
+        public List<Recipe> AvailableRecipes { get; set; }
     }
 }

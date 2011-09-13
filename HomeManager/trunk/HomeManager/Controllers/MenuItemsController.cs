@@ -22,7 +22,7 @@ namespace HomeManager.Controllers
 
         public ViewResult Index()
         {
-            return View(context.MenuItems.Include(menuitem => menuitem.Recipes).ToList());
+            return View(context.MenuItems.Include(menuitem => menuitem.Recipe).ToList());
         }
 
         //

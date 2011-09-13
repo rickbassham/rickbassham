@@ -11,6 +11,7 @@ namespace HomeManager.Models
         public DateTime Date { get; set; }
         public string Meal { get; set; }
 
-        public virtual ICollection<Recipe> Recipes { get; set; }
+        public int RecipeId { get; set; }
+        public virtual Recipe Recipe { get; set; }
     }
 }

@@ -7,10 +7,10 @@
 <div id="listadditem">
 @using (Ajax.BeginForm("Add", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listadditem", OnSuccess = "postAddItem" })) {
 @Html.Hidden("ShoppingListId", Model.Id)
-<ol id="shoppinglistitems" class="sortable" data-role="listview" data-inset="true">
+<ol id="shoppinglistitems" class="sortable" data-role="listview" data-inset="true" data-split-icon="delete">
     @foreach (HomeManager.Models.ShoppingListItem item in Model.ShoppingListItems.OrderBy(s => s.Rank)) {
         <li id="@item.Id" data-role="fieldcontain">
-            <span>@item.Amount @item.Unit @item.Item.Name</span> @Ajax.ActionLink("Delete", "RemoveFromShoppingList", new { shoppingListId = Model.Id, shoppingListItemId = item.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listadditem", OnSuccess = "postAddItem" })
+            <a href="#">@Mehroz.Fraction.ToFraction(item.Amount).ToString() @item.Unit @item.Item.Name</a> <a href="@Url.Action("RemoveFromShoppingList", new { shoppingListId = Model.Id, shoppingListItemId = item.Id })" data-ajax="false">Delete</a>
         </li>
     }
     <li>

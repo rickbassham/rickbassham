@@ -227,7 +227,7 @@ namespace HomeManager.Controllers
 
             context.SaveChanges();
 
-            return View("ListAdd", list);
+            return RedirectToAction("Details", "ShoppingLists", new { id = list.Id });
         }
 
     }

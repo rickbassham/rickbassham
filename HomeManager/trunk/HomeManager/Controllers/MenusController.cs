@@ -8,6 +8,7 @@ using DDay.iCal;
 using System.Web.Routing;
 using DDay.iCal.Serialization.iCalendar;
 using System.Text;
+using System.Data.Objects;
 
 namespace HomeManager.Controllers
 {
@@ -15,94 +16,70 @@ namespace HomeManager.Controllers
     {
         private HomeManagerContext context = new HomeManagerContext();
 
-        public ActionResult Details()
+        [HttpGet]
+        public ActionResult Details(DateTime? date)
         {
-            var list = (from r in context.Recipes select r);
+            DateTime startDate = (date ?? DateTime.Now).Date;
+            startDate = startDate.AddDays(-1 * (int)startDate.DayOfWeek);
 
-            return View(list.ToList());
+            DateTime endDate = startDate.AddDays(7);
+
+            var scheduledRecipes = (from menuItem in context.MenuItems
+                                    group menuItem by menuItem.Date into m
+                                    where m.Key >= startDate && m.Key < endDate
+                                    select m).ToDictionary(group => group.Key, group => group.Select(item => item.Recipe).ToList());
+
+            CalendarDetailModel retVal = new CalendarDetailModel();
+
+            retVal.StartDate = startDate;
+            retVal.ScheduledRecipes = scheduledRecipes;
+            retVal.AvailableRecipes = context.Recipes.ToList();
+
+            retVal.AvailableRecipes.Add(new Recipe { Id = 0, Name = "Select Recipe" });
+
+            retVal.AvailableRecipes.Sort((a, b) => a.Id.CompareTo(b.Id));
+
+            return View(retVal);
         }
 
-        public ActionResult RemoveRecipe(int recipeId, long unixDate)
+        [HttpPost]
+        public ActionResult Details(DateTime date, int recipeId)
         {
-            DateTime date = unixDate.FromUnixTimestamp();
+            date = date.Date;
 
-            MenuItem menuItem = (from mi in context.MenuItems where mi.Date == date.Date select mi).Single();
+            var recipe = context.Recipes.Where(r => r.Id == recipeId).FirstOrDefault();
 
-            Recipe r = (from recipe in context.Recipes where recipe.Id == recipeId select recipe).Single();
-
-            menuItem.Recipes.Remove(r);
-
-            if (menuItem.Recipes.Count == 0)
+            if (recipe != null)
             {
-                context.MenuItems.Remove(menuItem);
+                MenuItem item = new MenuItem
+                {
+                    Date = date,
+                    Meal = "Dinner",
+                    RecipeId = recipeId
+                };
+
+                context.MenuItems.Add(item);
+                context.SaveChanges();
             }
 
-            context.SaveChanges();
-
-            return Json("", JsonRequestBehavior.AllowGet);
+            return Details(date);
         }
 
-        public ActionResult AddRecipe(int recipeId, long unixDate)
+        public ActionResult RemoveRecipe(DateTime date, int recipeId)
         {
-            DateTime date = unixDate.FromUnixTimestamp();
+            date = date.Date;
 
-            var item = from mi in context.MenuItems where mi.Date == date.Date select mi;
+            var recipe = context.Recipes.Where(r => r.Id == recipeId).FirstOrDefault();
 
-            MenuItem menuItem;
-
-            if (item.Count() > 0)
+            if (recipe != null)
             {
-                menuItem = item.Single();
-            }
-            else
-            {
-                menuItem = new MenuItem();
+                MenuItem item = context.MenuItems.Where(m => m.RecipeId == recipeId && m.Date == date).FirstOrDefault();
 
-                menuItem.Date = date.Date;
-                menuItem.Meal = "Dinner";
-
-                context.MenuItems.Add(menuItem);
+                context.MenuItems.Remove(item);
+                context.SaveChanges();
             }
 
-            Recipe r = (from recipe in context.Recipes where recipe.Id == recipeId select recipe).Single();
-
-            if (menuItem.Recipes == null)
-            {
-                menuItem.Recipes = new List<Recipe>();
-            }
-
-            menuItem.Recipes.Add(r);
-
-            context.SaveChanges();
-
-            return Json("", JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult GetMeals(double start, double end)
-        {
-            DateTime startDate = start.FromUnixTimestamp().Date;
-            DateTime endDate = end.FromUnixTimestamp().Date;
-
-            var menuItems = from derivedItems in
-                                (from recipe in context.Recipes
-                                 from item in recipe.MenuItems
-                                 where item.Date >= startDate && item.Date <= endDate
-                                 select new
-                                 {
-                                     id = recipe.Id,
-                                     title = recipe.Name,
-                                     allDay = true,
-                                     start = item.Date
-                                 }).ToList()
-                            select new
-                            {
-                                id = derivedItems.id,
-                                title = derivedItems.title,
-                                allDay = derivedItems.allDay,
-                                start = derivedItems.start.ToString("s")
-                            };
-
-            return Json(menuItems, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Details", new { date = date });
         }
 
         public ActionResult Calendar()
@@ -122,26 +99,23 @@ namespace HomeManager.Controllers
                     case "Breakfast": offset = 8; break;
                 }
 
-                foreach (var recipe in item.Recipes)
-                {
-                    string path = RouteTable.Routes.GetVirtualPath(
-                        new RequestContext(HttpContext, RouteTable.Routes.GetRouteData(HttpContext)),
-                        new RouteValueDictionary(new
-                        {
-                            Controller = "Recipe",
-                            Action = "Details",
-                            Id = recipe.Id
-                        })).VirtualPath;
-
-                    cal.AddChild(new Event
+                string path = RouteTable.Routes.GetVirtualPath(
+                    new RequestContext(HttpContext, RouteTable.Routes.GetRouteData(HttpContext)),
+                    new RouteValueDictionary(new
                     {
-                        Start = new iCalDateTime(item.Date.Date.AddHours(offset)),
-                        End = new iCalDateTime(item.Date.Date.AddHours(offset + 1)),
-                        Name = recipe.Name,
-                        Summary = recipe.Description,
-                        Url = new Uri(string.Format("http://{0}/{1}", this.HttpContext.Request.Url.Host, path))
-                    });
-                }
+                        Controller = "Recipe",
+                        Action = "Details",
+                        Id = item.Recipe.Id
+                    })).VirtualPath;
+
+                cal.AddChild(new Event
+                {
+                    Start = new iCalDateTime(item.Date.Date.AddHours(offset)),
+                    End = new iCalDateTime(item.Date.Date.AddHours(offset + 1)),
+                    Name = item.Recipe.Name,
+                    Summary = item.Recipe.Description,
+                    Url = new Uri(string.Format("http://{0}/{1}", this.HttpContext.Request.Url.Host, path))
+                });
             }
 
             iCalendarSerializer serializer = new iCalendarSerializer();

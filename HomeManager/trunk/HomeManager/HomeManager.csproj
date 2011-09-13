@@ -109,7 +109,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\HomeManagerContext.sdf" />
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\images\ajax-loader.png" />
     <Content Include="Content\images\icon-search-black.png" />
@@ -281,7 +280,6 @@
     <Content Include="Views\Ingredients\List.cshtml" />
     <Content Include="Views\Ingredients\ListAdd.cshtml" />
     <Content Include="Views\Menus\Details.cshtml" />
-    <Content Include="Views\Recipes\CalendarDetail.cshtml" />
     <Content Include="Views\RecipeSteps\List.cshtml" />
     <Content Include="Views\RecipeSteps\ListAdd.cshtml" />
     <Content Include="Views\ShoppingListItems\ListOfItems.cshtml" />
@@ -327,7 +325,9 @@
     <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.xml" />
     <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
