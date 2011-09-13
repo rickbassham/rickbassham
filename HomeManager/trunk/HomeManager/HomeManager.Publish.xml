@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="ftp://ftp.rickbassham.com/HomeManager" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="HomeManager" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="True" profileName="rickbassham.com" publishMethod="FTP" replaceMatchingFiles="True" userName="0118359|rickbassham" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZW9WZ1yk3E+EG/p5NOydPAAAAAACAAAAAAAQZgAAAAEAACAAAAAmZoXaqmC0OXMFluSj9zlViVtkJUx6FlZ3VyrQKrisBQAAAAAOgAAAAAIAACAAAADnbJfk9z3Ms28Oi9xtf/dT1v7Cj0JLUpYw8qvgiNu0ayAAAAA9xiXqEZwxJnbEgmr4uINPxUod7HvVKTl9vnBlZ9QAu0AAAACUIF21gl6DnOow18SDJo3Xz5Lnx/329QUeKhmBj2AsPT7jSzNVoYyw4q+6debIQaOmRHLhLPyVyKNA4N361Syk" SelectedForPublish="True">
+  <publishProfile publishUrl="ftp://ftp.rickbassham.com/HomeManager" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="HomeManager" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="True" profileName="rickbassham.com" publishMethod="FTP" replaceMatchingFiles="True" userName="0118359|rickbassham" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO3OKu10IXEOQRwfUHhcp1QAAAAACAAAAAAADZgAAqAAAABAAAAAvivRzbKRXH9TL23CSJ7HDAAAAAASAAACgAAAAEAAAAEKz0N3RyuZRqKMBVeQb3B4gAAAAP2kPdLrO0tUSUWCAUXRzOfKHCMaqLwJHvsSCsVqsv8YUAAAARzsRlqu04OCFMdd87Z7Zc5/t+yc=" SelectedForPublish="True">
     <file relUrl="Views/Categories/Details.cshtml" publishTime="09/11/2011 06:36:00" />
     <file relUrl="Views/ItemTypes/Create.cshtml" publishTime="09/11/2011 06:37:40" />
     <file relUrl="Content/themes/base/minified/jquery.ui.slider.min.css" publishTime="09/10/2011 12:17:55" />
@@ -37,11 +37,14 @@
     <file relUrl="Views/Ingredients/ListAdd.cshtml" publishTime="09/11/2011 07:16:04" />
     <file relUrl="Views/Items/Create.cshtml" publishTime="09/11/2011 06:37:13" />
     <file relUrl="bin/amd64/sqlcecompact40.dll" publishTime="01/05/2011 20:48:22" />
-    <file relUrl="bin/HomeManager.pdb" publishTime="09/11/2011 19:57:43" />
+    <file relUrl="bin/HomeManager.pdb" publishTime="09/13/2011 11:05:21" />
     <file relUrl="Views/RecipeSteps/Index.cshtml" publishTime="09/11/2011 06:39:40" />
     <file relUrl="Content/themes/base/minified/jquery.ui.progressbar.min.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="09/10/2011 12:17:16" />
+    <file relUrl="bin/.svn/entries" publishTime="09/13/2011 11:10:49" />
+    <file relUrl="bin/.svn/all-wcprops" publishTime="09/13/2011 11:10:49" />
     <file relUrl="Views/Items/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:37:30" />
+    <file relUrl="bin/.svn/prop-base/System.Web.WebPages.Administration.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Views/CategoryTypes/Delete.cshtml" publishTime="09/11/2011 06:36:30" />
     <file relUrl="bin/x86/sqlcese40.dll" publishTime="01/05/2011 21:12:40" />
     <file relUrl="Views/Categories/Create.cshtml" publishTime="09/11/2011 06:35:52" />
@@ -69,15 +72,16 @@
     <file relUrl="Views/ShoppingListItems/Edit.cshtml" publishTime="09/11/2011 07:22:08" />
     <file relUrl="Views/RecipeNotes/Create.cshtml" publishTime="09/11/2011 06:39:05" />
     <file relUrl="Scripts/jquery-ui-1.8.16.min.js" publishTime="09/10/2011 12:17:55" />
-    <file relUrl="Global.asax" publishTime="09/10/2011 12:17:16" />
+    <file relUrl="Global.asax" publishTime="09/10/2011 12:17:18" />
     <file relUrl="Views/ItemTypes/Delete.cshtml" publishTime="09/11/2011 06:37:44" />
-    <file relUrl="bin/DDay.iCal.dll" publishTime="09/11/2011 06:48:48" />
+    <file relUrl="bin/DDay.iCal.dll" publishTime="09/11/2011 06:48:50" />
     <file relUrl="bin/amd64/sqlcese40.dll" publishTime="01/05/2011 20:48:22" />
     <file relUrl="Views/ShoppingListItems/ListOfItems.cshtml" publishTime="09/11/2011 07:22:00" />
+    <file relUrl="bin/.svn/text-base/Microsoft.Web.Infrastructure.dll.svn-base" publishTime="09/13/2011 11:10:14" />
     <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="09/10/2011 12:17:16" />
     <file relUrl="Views/RecipeSteps/Edit.cshtml" publishTime="09/11/2011 06:39:32" />
     <file relUrl="Content/themes/base/minified/jquery.ui.theme.min.css" publishTime="09/10/2011 12:17:55" />
-    <file relUrl="Web.config" publishTime="09/12/2011 06:39:21" />
+    <file relUrl="Web.config" publishTime="09/12/2011 06:39:22" />
     <file relUrl="Views/ShoppingListItems/ListAdd.cshtml" publishTime="09/11/2011 19:55:59" />
     <file relUrl="Views/CategoryTypes/Details.cshtml" publishTime="09/11/2011 06:36:32" />
     <file relUrl="bin/x86/sqlceca40.dll" publishTime="01/05/2011 21:12:40" />
@@ -85,7 +89,7 @@
     <file relUrl="bin/System.Data.SqlServerCe.dll" publishTime="01/05/2011 21:36:44" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Scripts/jquery.unobtrusive-ajax.js" publishTime="09/10/2011 12:17:16" />
-    <file relUrl="packages.config" publishTime="09/11/2011 10:53:12" />
+    <file relUrl="packages.config" publishTime="09/13/2011 06:25:27" />
     <file relUrl="Content/themes/base/jquery.ui.dialog.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/MenuItems/Index.cshtml" publishTime="09/11/2011 06:38:14" />
     <file relUrl="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png" publishTime="09/10/2011 12:17:55" />
@@ -96,10 +100,13 @@
     <file relUrl="bin/x86/Microsoft.VC90.CRT/README_ENU.txt" publishTime="12/22/2010 19:19:54" />
     <file relUrl="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/Categories/Edit.cshtml" publishTime="09/11/2011 06:35:54" />
+    <file relUrl="bin/.svn/prop-base/System.Web.WebPages.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Views/RecipeNotes/Edit.cshtml" publishTime="09/11/2011 06:39:07" />
     <file relUrl="Scripts/fullcalendar.js" publishTime="09/11/2011 07:14:15" />
+    <file relUrl="bin/.svn/text-base/NuGet.Core.dll.svn-base" publishTime="09/13/2011 11:10:21" />
     <file relUrl="Views/RecipeSteps/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:39:43" />
     <file relUrl="Scripts/jquery.validate.unobtrusive.min.js" publishTime="09/10/2011 12:17:16" />
+    <file relUrl="bin/.svn/prop-base/WebMatrix.Data.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/_ViewStart.cshtml" publishTime="09/10/2011 12:17:16" />
     <file relUrl="Content/themes/base/minified/jquery.ui.datepicker.min.css" publishTime="09/10/2011 12:17:55" />
@@ -112,20 +119,21 @@
     <file relUrl="Content/themes/base/jquery.ui.progressbar.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/Items/Details.cshtml" publishTime="09/11/2011 06:37:23" />
     <file relUrl="Views/ShoppingListItems/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:40:28" />
-    <file relUrl="bin/HomeManager.dll" publishTime="09/11/2011 19:57:43" />
+    <file relUrl="bin/HomeManager.dll" publishTime="09/13/2011 11:14:10" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="bin/System.Data.SqlServerCe.Entity/System.Data.SqlServerCe.Entity.dll" publishTime="01/05/2011 21:36:40" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Content/themes/base/minified/jquery.ui.dialog.min.css" publishTime="09/10/2011 12:17:55" />
-    <file relUrl="bin/HtmlAgilityPack.xml" publishTime="09/11/2011 10:53:12" />
+    <file relUrl="bin/HtmlAgilityPack.xml" publishTime="09/11/2011 10:53:14" />
     <file relUrl="Scripts/jquery.validate-vsdoc.js" publishTime="09/10/2011 12:17:56" />
     <file relUrl="Content/themes/base/jquery.ui.theme.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Scripts/jquery.validate.min.js" publishTime="09/10/2011 12:17:56" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Scripts/jquery-1.6.3-vsdoc.js" publishTime="09/10/2011 12:17:56" />
     <file relUrl="Content/themes/base/minified/jquery.ui.all.min.css" publishTime="09/10/2011 12:17:55" />
-    <file relUrl="bin/HtmlAgilityPack.dll" publishTime="09/11/2011 10:53:12" />
+    <file relUrl="bin/HtmlAgilityPack.dll" publishTime="09/11/2011 10:53:14" />
     <file relUrl="Views/Shared/Error.cshtml" publishTime="09/10/2011 12:17:16" />
+    <file relUrl="bin/.svn/prop-base/System.Web.WebPages.Razor.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Views/Ingredients/Details.cshtml" publishTime="09/11/2011 06:36:57" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/Ingredients/List.cshtml" publishTime="09/11/2011 07:16:04" />
@@ -133,6 +141,7 @@
     <file relUrl="Content/themes/base/minified/images/ui-icons_888888_256x240.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/RecipeNotes/Index.cshtml" publishTime="09/11/2011 06:39:16" />
     <file relUrl="Views/ShoppingLists/Index.cshtml" publishTime="09/11/2011 07:19:15" />
+    <file relUrl="bin/.svn/text-base/Microsoft.Web.Infrastructure.xml.svn-base" publishTime="09/13/2011 11:10:48" />
     <file relUrl="Scripts/modernizr-2.0.6-development-only.js" publishTime="09/10/2011 12:17:47" />
     <file relUrl="Views/ItemTypes/Details.cshtml" publishTime="09/11/2011 06:37:46" />
     <file relUrl="Views/CategoryTypes/Index.cshtml" publishTime="09/11/2011 06:36:34" />
@@ -153,11 +162,14 @@
     <file relUrl="Content/themes/base/minified/jquery.ui.selectable.min.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/Ingredients/Index.cshtml" publishTime="09/11/2011 06:37:01" />
     <file relUrl="bin/x86/sqlceme40.dll" publishTime="01/05/2011 21:12:40" />
+    <file relUrl="bin/.svn/prop-base/System.Data.SqlServerCe.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Views/ShoppingLists/Details.cshtml" publishTime="09/11/2011 19:47:29" />
+    <file relUrl="bin/.svn/prop-base/System.Web.Helpers.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Views/Recipes/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:38:57" />
     <file relUrl="Content/themes/base/minified/jquery.ui.resizable.min.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Content/themes/base/minified/jquery.ui.core.min.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/MenuItems/Delete.cshtml" publishTime="09/11/2011 06:38:09" />
+    <file relUrl="bin/.svn/prop-base/Microsoft.Web.Infrastructure.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/Ingredients/Delete.cshtml" publishTime="09/11/2011 06:36:54" />
     <file relUrl="Content/themes/base/jquery.ui.slider.css" publishTime="09/10/2011 12:17:55" />
@@ -168,11 +180,12 @@
     <file relUrl="bin/System.Web.WebPages.Razor.dll" publishTime="01/05/2011 15:45:38" />
     <file relUrl="App_Data/HomeManagerContext.sdf" publishTime="09/12/2011 06:37:44" />
     <file relUrl="Views/ItemTypes/Index.cshtml" publishTime="09/11/2011 06:37:49" />
-    <file relUrl="bin/EntityFramework.xml" publishTime="09/10/2011 12:17:42" />
+    <file relUrl="bin/EntityFramework.xml" publishTime="09/10/2011 12:17:44" />
     <file relUrl="Views/RecipeSteps/Delete.cshtml" publishTime="09/11/2011 06:39:34" />
+    <file relUrl="bin/.svn/prop-base/System.Web.WebPages.Deployment.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Content/themes/base/jquery.ui.button.css" publishTime="09/10/2011 12:17:55" />
-    <file relUrl="bin/EntityFramework.dll" publishTime="09/10/2011 12:17:42" />
+    <file relUrl="bin/EntityFramework.dll" publishTime="09/10/2011 12:17:44" />
     <file relUrl="Views/MenuItems/Create.cshtml" publishTime="09/11/2011 06:38:04" />
     <file relUrl="Views/Items/Delete.cshtml" publishTime="09/11/2011 06:37:19" />
     <file relUrl="Views/CategoryTypes/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:36:36" />
@@ -186,6 +199,8 @@
     <file relUrl="Views/RecipeNotes/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:39:19" />
     <file relUrl="Views/MenuItems/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:38:16" />
     <file relUrl="Views/ShoppingLists/Edit.cshtml" publishTime="09/11/2011 06:39:53" />
+    <file relUrl="bin/.svn/prop-base/System.Web.Razor.dll.svn-base" publishTime="09/13/2011 11:09:42" />
+    <file relUrl="bin/.svn/prop-base/NuGet.Core.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Views/Ingredients/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:37:05" />
     <file relUrl="bin/System.Web.Helpers.dll" publishTime="01/05/2011 15:45:38" />
     <file relUrl="Scripts/jquery.unobtrusive-ajax.min.js" publishTime="09/10/2011 12:17:16" />
@@ -194,18 +209,20 @@
     <file relUrl="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/MenuItems/Details.cshtml" publishTime="09/11/2011 06:38:11" />
     <file relUrl="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="09/10/2011 12:17:55" />
+    <file relUrl="bin/.svn/prop-base/WebMatrix.WebData.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Views/Ingredients/Create.cshtml" publishTime="09/11/2011 06:36:48" />
     <file relUrl="bin/System.Web.Mvc.dll" publishTime="01/05/2011 17:42:16" />
     <file relUrl="bin/amd64/Microsoft.VC90.CRT/README_ENU.txt" publishTime="12/22/2010 19:19:54" />
     <file relUrl="Content/themes/base/minified/images/ui-icons_454545_256x240.png" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/Categories/_CreateOrEdit.cshtml" publishTime="09/11/2011 06:36:06" />
-    <file relUrl="bin/HtmlAgilityPack.pdb" publishTime="09/11/2011 10:53:12" />
+    <file relUrl="bin/HtmlAgilityPack.pdb" publishTime="09/11/2011 10:53:14" />
     <file relUrl="bin/WebMatrix.Data.xml" publishTime="12/19/2010 23:59:38" />
     <file relUrl="Content/themes/base/minified/jquery.ui.button.min.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="bin/amd64/Microsoft.VC90.CRT/Microsoft.VC90.CRT.manifest" publishTime="07/11/2009 22:17:30" />
     <file relUrl="Views/Recipes/Edit.cshtml" publishTime="09/11/2011 06:38:31" />
     <file relUrl="Content/themes/base/jquery.ui.base.css" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/ShoppingListItems/Details.cshtml" publishTime="09/11/2011 07:22:23" />
+    <file relUrl="bin/.svn/prop-base/System.Web.Mvc.dll.svn-base" publishTime="09/13/2011 11:09:42" />
     <file relUrl="Scripts/gcal.js" publishTime="09/11/2011 07:14:15" />
     <file relUrl="Scripts/jquery-ui-1.8.16.js" publishTime="09/10/2011 12:17:55" />
     <file relUrl="Views/ShoppingLists/Delete.cshtml" publishTime="09/11/2011 06:39:55" />
