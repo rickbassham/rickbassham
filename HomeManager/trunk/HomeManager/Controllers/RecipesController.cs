@@ -9,6 +9,7 @@ using HomeManager.Models;
 using System.IO;
 using System.Net;
 using HtmlAgilityPack;
+using System.Text;
 
 namespace HomeManager.Controllers
 {   
@@ -150,6 +151,43 @@ namespace HomeManager.Controllers
 
         }
 
+        private TimeSpan ParseAllRecipesTime(string timeCode)
+        {
+            if (timeCode.StartsWith("PT"))
+            {
+                timeCode = timeCode.Substring(2);
+
+                StringBuilder number = new StringBuilder();
+
+                int hours = 0;
+                int minutes = 0;
+
+                for (int i = 0; i < timeCode.Length; i++)
+                {
+                    if (timeCode[i] >= 48 && timeCode[i] <= 57)
+                    {
+                        number.Append(timeCode[i]);
+                    }
+                    else
+                    {
+                        switch(timeCode[i])
+                        {
+                            case 'H': hours = int.Parse(number.ToString()); break;
+                            case 'M': minutes = int.Parse(number.ToString()); break;
+                        }
+
+                        number.Clear();
+                    }
+                }
+
+                return new TimeSpan(hours, minutes, 0);
+            }
+            else
+            {
+                return TimeSpan.Zero;
+            }
+        }
+
         public ActionResult AddFromAllrecipes(string url)
         {
             HtmlDocument doc = new HtmlDocument();
@@ -161,6 +199,16 @@ namespace HomeManager.Controllers
             r.Name = doc.DocumentNode.SelectSingleNode(@"//h1[@id=""itemTitle""]/span").InnerText.Trim();
 
             r.Description = doc.DocumentNode.SelectSingleNode(@"//div[@class=""rec-title_submitterdiv""]/div/div/div[@class=""plaincharacterwrap""]").InnerText.Trim();
+
+            string prepTimeCode = doc.DocumentNode.SelectSingleNode(@"//span[@class=""prepTime""]/span").Attributes["title"].Value;
+            string cookTimeCode = doc.DocumentNode.SelectSingleNode(@"//span[@class=""cookTime""]/span").Attributes["title"].Value;
+            string totalTimeCode = doc.DocumentNode.SelectSingleNode(@"//span[@class=""totalTime""]/span").Attributes["title"].Value;
+
+            r.PrepTime = ParseAllRecipesTime(prepTimeCode);
+            r.CookTime = ParseAllRecipesTime(cookTimeCode);
+            r.InactivePrepTime = ParseAllRecipesTime(totalTimeCode) - r.PrepTime - r.CookTime;
+
+            r.Servings = int.Parse(doc.DocumentNode.SelectSingleNode(@"//input[@class=""servings-amount""]").Attributes["value"].Value);
 
             r.Source = url;
 

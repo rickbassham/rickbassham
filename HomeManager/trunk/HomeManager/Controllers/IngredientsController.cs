@@ -118,7 +118,7 @@ namespace HomeManager.Controllers
 
             context.SaveChanges();
 
-            return View("ListAdd", r);
+            return RedirectToAction("Details", "Recipes", new { id = recipeId });
         }
 
         public ActionResult GetUnits(string term)
@@ -128,54 +128,17 @@ namespace HomeManager.Controllers
             return Json(units.ToList(), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Add(int recipeId, string amount, string unit, string item)
+        public ActionResult Add(int recipeId, string ingredient)
         {
+            Ingredient parsedIngredient = ItemParser<Ingredient>.Parse(ingredient, context);
+
             Recipe r = (from i in context.Recipes where i.Id == recipeId select i).Single();
 
-            var it = from i in context.Items where i.Name == item select i;
-
-            Item ingredientItem;
-
-            if (it.Count() == 1)
-            {
-                ingredientItem = it.Single();
-            }
-            else
-            {
-                ingredientItem = new Item();
-                ingredientItem.Name = item;
-
-                var itemTypeResult = from itemType in context.ItemTypes where itemType.Name == "Recipe" select itemType;
-
-                if (itemTypeResult.Count() == 1)
-                {
-                    ingredientItem.ItemType = itemTypeResult.Single();
-                }
-                else
-                {
-                    ingredientItem.ItemType = new ItemType();
-
-                    ingredientItem.ItemType.Name = "Recipe";
-
-//                    context.ItemTypes.Add(ingredientItem.ItemType);
-                }
-
-//                context.Items.Add(ingredientItem);
-            }
-
-            Ingredient ingredient = new Ingredient();
-
-            ingredient.Item = ingredientItem;
-            ingredient.Unit = unit;
-            ingredient.Amount = new Mehroz.Fraction(amount).ToDouble();
-
-//            context.Ingredients.Add(ingredient);
-
-            r.Ingredients.Add(ingredient);
+            r.Ingredients.Add(parsedIngredient);
 
             context.SaveChanges();
 
-            return View("ListAdd", r);
+            return RedirectToAction("Details", "Recipes", new { id = r.Id });
         }
 
         public ActionResult ListAdd(int recipeId)

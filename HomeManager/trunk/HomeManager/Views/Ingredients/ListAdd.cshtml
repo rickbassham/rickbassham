@@ -5,45 +5,21 @@
 }
 
 <div id="listaddingredient">
-@using (Ajax.BeginForm("Add", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddingredient", OnSuccess = "postAddIngredient" })) {
-@Html.Hidden("RecipeId", Model.Id)
 <ul data-role="listview" data-split-icon="delete">
     @foreach (HomeManager.Models.Ingredient ingredient in Model.Ingredients)
     {
         <li>
-            <a href="#">@Mehroz.Fraction.ToFraction(ingredient.Amount).ToString() @ingredient.Unit @ingredient.Item.Name</a> @Ajax.ActionLink("Delete", "RemoveFromRecipe", new { recipeId = Model.Id, ingredientId = ingredient.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listaddingredient", OnSuccess = "postAddIngredient" })
+            <a href="#">@(ingredient.Amount > 0 ? Mehroz.Fraction.ToFraction(ingredient.Amount).ToString() : string.Empty) @ingredient.Unit @ingredient.Item.Name</a> <a href="@Url.Action("RemoveFromRecipe", new { recipeId = Model.Id, ingredientId = ingredient.Id })" data-ajax="false">Delete</a>
         </li>
     }
     <li>
-        <div>
-            <div class="listadditem">
-                @Html.Label("Amount")
-                @Html.TextBox("Amount")
-            </div>
-            <div class="listadditem">
-                @Html.Label("Unit")
-                @Html.TextBox("Unit", "", new { @class = "unit" })
-            </div>
-            <div class="listadditem">
-                @Html.Label("Item")
-                @Html.TextBox("Item", "", new { @class = "item" })
-            </div>
-            <input type="submit" id="AddIngredient" value="Add" />
-        </div>
+        @using (Html.BeginForm("Add", "Ingredients"))
+        {
+            @Html.Hidden("RecipeId", Model.Id)
+            <input type="text" name="ingredient" />
+            <input type="submit" id="AddIngredient" value="Add" data-inline="true" />
+        }
     </li>
 </ul>
-}
+
 </div>
-
-<script type="text/javascript">
-    function postAddIngredient() {
-        $('#Amount').val('');
-        $('#Unit').val('');
-        $('#Item').val('');
-
-        $('#Amount').focus();
-    }
-    $(document).ready(function () {
-        postAddIngredient();
-    });
-</script>
