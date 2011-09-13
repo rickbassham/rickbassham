@@ -9,7 +9,7 @@
 @Html.Hidden("ShoppingListId", Model.Id)
 <ol id="shoppinglistitems" class="sortable" data-role="listview" data-inset="true">
     @foreach (HomeManager.Models.ShoppingListItem item in Model.ShoppingListItems.OrderBy(s => s.Rank)) {
-        <li id="@item.Id" class="recipestep">
+        <li id="@item.Id" data-role="fieldcontain">
             <span>@item.Amount @item.Unit @item.Item.Name</span> @Ajax.ActionLink("Delete", "RemoveFromShoppingList", new { shoppingListId = Model.Id, shoppingListItemId = item.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "listadditem", OnSuccess = "postAddItem" })
         </li>
     }
