@@ -7,6 +7,8 @@ using System.Xml.Serialization;
 
 namespace SharpFtpServer
 {
+    // TODO: Implement a real user store.
+    [Obsolete]
     public static class UserStore
     {
         private static List<User> _users;
@@ -26,7 +28,7 @@ namespace SharpFtpServer
                 _users.Add(new User {
                     Username = "rick",
                     Password = "test",
-                    HomeDir = "C:\\Temp"
+                    HomeDir = "C:\\Utils"
                 });
 
                 using (StreamWriter w = new StreamWriter("users.xml"))

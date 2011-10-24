@@ -106,11 +106,13 @@ namespace SharpFtpServer
         private StreamWriter _dataWriter;
 
         private TransferType _connectionType;
-        private FormatControlType _formatControlType;
-        private int _localFormatByteSize = -1;
+
+//        private FormatControlType _formatControlType;
+//        private int _localFormatByteSize = -1;
 
         private DataConnectionType _dataConnectionType;
-        private FileStructureType _fileStructureType = FileStructureType.File;
+
+//        private FileStructureType _fileStructureType = FileStructureType.File;
 
         private string _username;
         private string _root;
@@ -573,7 +575,7 @@ namespace SharpFtpServer
                 switch (formatControl.ToUpperInvariant())
                 {
                     case "N":
-                        _formatControlType = FormatControlType.NonPrint;
+//                        _formatControlType = FormatControlType.NonPrint;
                         break;
                     default:
                         return "504 Command not implemented for that parameter";
@@ -813,10 +815,10 @@ namespace SharpFtpServer
             switch (structure)
             {
                 case "F":
-                    _fileStructureType = FileStructureType.File;
+//                    _fileStructureType = FileStructureType.File;
                     break;
                 case "R":
-                    _fileStructureType = FileStructureType.Record;
+//                    _fileStructureType = FileStructureType.Record;
                     break;
                 case "P":
                     return "504 STRU not implemented for \"P\"";
