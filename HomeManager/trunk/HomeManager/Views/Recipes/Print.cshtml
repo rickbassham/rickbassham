@@ -1,0 +1,33 @@
+﻿@model HomeManager.Models.Recipe
+
+@{
+    Layout = null;
+    ViewBag.Title = "Print";
+}
+
+<h2>@Model.Name</h2>
+<div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-field">
+    <a href="#" data-role="button" data-inline="true">Prep Time: @Model.PrepTime</a>
+    <a href="#" data-role="button" data-inline="true">Cook Time: @Model.CookTime</a>
+    <a href="#" data-role="button" data-inline="true">Ready In: @(Model.PrepTime + Model.CookTime)</a>
+    </div>
+
+    <div class="display-field">
+    <a href="@Model.Source" data-role="button">Source</a>
+    </div>
+
+    <div class="display-label">Rating</div>
+    <div class="display-field">@Model.Rating</div>
+
+    <div class="display-label">Servings</div>
+    <div class="display-field">@Model.Servings</div>
+
+    <h3>Ingredients:</h3>
+    @{ Html.RenderAction("List", "Ingredients", new { recipeId = Model.Id }); }
+
+    <h3>Directions:</h3>
+    @{ Html.RenderAction("List", "RecipeSteps", new { recipeId = Model.Id }); }
+</div>

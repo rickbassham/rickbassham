@@ -7,7 +7,7 @@
 </div>
 
 <div data-role="content">
-    <ul data-role="listview">
+    <ul data-role="listview" data-inset="true">
         <li>@Html.ActionLink("Recipes", "Index", "Recipes")</li>
         <li>@Html.ActionLink("Shopping Lists", "Index", "ShoppingLists")</li>
         <li>@Html.ActionLink("Menu", "Details", "Menus")</li>
@@ -15,5 +15,5 @@
 </div>
 
 <div data-role="footer">
-    <h4><a href="http://www.rickbassham.com/HomeManager">Home</a></h4>
+    @Html.ActionLink("Home", "Index", "Home")
 </div>

@@ -9,11 +9,15 @@
 }
 
 <div data-role="header">
-    <h2>Calendar</h2>
+    @Html.ActionLink("Home", "Index", "Home")<h2>Calendar</h2>
 </div>
 
+<style>
+    .ui-li .ui-btn { margin: 0.5em 0 }
+</style>
+
 <div data-role="content">
-    <ul data-role="listview" data-split-icon="delete">
+    <ul data-role="listview" data-inset="true" data-split-icon="delete">
         @for (int i = 0; i < 7; i++)
         {
             <li data-role="list-divider">@startDate.AddDays(i).DayOfWeek @startDate.AddDays(i).ToShortDateString()</li>
@@ -22,7 +26,7 @@
             {
                 foreach (var recipe in Model.ScheduledRecipes[startDate.AddDays(i)])
                 { 
-                <li><a href="#">@recipe.Name</a> <a href="@Url.Action("RemoveRecipe", new { date = startDate.AddDays(i).ToShortDateString(), recipeId = recipe.Id })" data-ajax="false">Remove</a></li>
+                <li data-icon="delete"><a data-ajax="false" href="@Url.Action("RemoveRecipe", new { date = startDate.AddDays(i).ToShortDateString(), recipeId = recipe.Id })">@recipe.Name</a></li>
                 }
             }
 
@@ -30,8 +34,10 @@
                 @using (Html.BeginForm())
                 {
                     <input type="hidden" name="date" value="@startDate.AddDays(i).ToShortDateString()" />
-                    @Html.DropDownList("recipeId", Model.AvailableRecipes.Select( r => new SelectListItem{Value = r.Id.ToString(), Text = r.Name}), new Dictionary<string, object> { { "data-native-menu", "false" } })
-                    <input type="submit" value="Add" data-inline="true" />
+                    <div data-role="fieldcontain">
+                        @Html.DropDownList("recipeId", Model.AvailableRecipes.Select( r => new SelectListItem{Value = r.Id.ToString(), Text = r.Name}), new Dictionary<string, object> { { "data-native-menu", "false" } })
+                        <input type="submit" value="Add" data-icon="plus" data-theme="d" data-inline="true" />
+                    </div>
                 }
             </li>
         }
@@ -42,8 +48,12 @@
         {
             <input type="hidden" name="startTimestamp" id="startTimestamp" value="@Model.StartDate.ToUnixTimestamp()" />
             <input type="hidden" name="endTimestamp" id="endTimestamp" value="@Model.StartDate.AddDays(7).ToUnixTimestamp()" />
-            <input type="submit" value="Add to Grocery List" id="createshoppinglist" />
+            <input type="submit" data-theme="b" data-icon="plus" value="Add All to Grocery List" id="createshoppinglist" />
         }
+    </div>
+
+    <div>
+        <a data-theme="d" data-icon="plus" data-role="button" href="webcal://localhost:51031/Menus/Calendar" data-ajax="false">Subscribe in Outlook</a>
     </div>
 </div>
 

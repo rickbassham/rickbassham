@@ -34,6 +34,12 @@ namespace HomeManager.Controllers
             return View(recipe);
         }
 
+        public ViewResult Print(int id)
+        {
+            Recipe recipe = context.Recipes.Single(x => x.Id == id);
+            return View(recipe);
+        }
+
         //
         // GET: /Recipes/Create
 

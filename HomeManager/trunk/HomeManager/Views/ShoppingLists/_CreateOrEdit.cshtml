@@ -1,12 +1,6 @@
 @model HomeManager.Models.ShoppingList
-
-@* This partial view defines form fields that will appear when creating and editing entities *@
-
-<div class="editor-label">
+<div data-role="fieldcontain">
     @Html.LabelFor(model => model.Store)
-</div>
-<div class="editor-field">
     @Html.EditorFor(model => model.Store)
     @Html.ValidationMessageFor(model => model.Store)
 </div>
-

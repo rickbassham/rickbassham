@@ -9,6 +9,7 @@ using System.Web.Routing;
 using DDay.iCal.Serialization.iCalendar;
 using System.Text;
 using System.Data.Objects;
+using System.Web.Mvc.Html;
 
 namespace HomeManager.Controllers
 {
@@ -85,6 +86,7 @@ namespace HomeManager.Controllers
         public ActionResult Calendar()
         {
             iCalendar cal = new iCalendar();
+            var tz = cal.AddLocalTimeZone();
 
             var items = context.MenuItems.OrderBy(m => m.Date);
 
@@ -99,23 +101,20 @@ namespace HomeManager.Controllers
                     case "Breakfast": offset = 8; break;
                 }
 
-                string path = RouteTable.Routes.GetVirtualPath(
-                    new RequestContext(HttpContext, RouteTable.Routes.GetRouteData(HttpContext)),
-                    new RouteValueDictionary(new
-                    {
-                        Controller = "Recipe",
-                        Action = "Details",
-                        Id = item.Recipe.Id
-                    })).VirtualPath;
-
-                cal.AddChild(new Event
+                var e = new Event
                 {
-                    Start = new iCalDateTime(item.Date.Date.AddHours(offset)),
-                    End = new iCalDateTime(item.Date.Date.AddHours(offset + 1)),
-                    Name = item.Recipe.Name,
-                    Summary = item.Recipe.Description,
-                    Url = new Uri(string.Format("http://{0}/{1}", this.HttpContext.Request.Url.Host, path))
-                });
+                    Start = new iCalDateTime(item.Date.Date.AddHours(offset), tz.TZID),
+                    End = new iCalDateTime(item.Date.Date.AddHours(offset + 1), tz.TZID),
+                    Description = item.Recipe.Description,
+                    Summary = item.Recipe.Name,
+                };
+
+                var p = new CalendarProperty("X-ALT-DESC", GetRecipeHtml(item.RecipeId));
+                p.AddParameter("FMTTYPE", "text/html");
+
+                e.AddProperty(p);
+
+                cal.AddChild(e);
             }
 
             iCalendarSerializer serializer = new iCalendarSerializer();
@@ -128,6 +127,23 @@ namespace HomeManager.Controllers
                 ContentType = "text/calendar",
                 ContentEncoding = Encoding.UTF8
             };
+        }
+
+        private string GetRecipeHtml(int recipeId)
+        {
+            var content = string.Empty;
+            var view = ViewEngines.Engines.FindView(ControllerContext, "~/Views/Recipes/Print.cshtml", null);
+            using (var writer = new System.IO.StringWriter())
+            {
+                ViewData.Model = context.Recipes.Where(r => r.Id == recipeId).FirstOrDefault();
+
+                var c = new ViewContext(ControllerContext, view.View, ViewData, TempData, writer);
+                view.View.Render(c, writer);
+                writer.Flush();
+                content = writer.ToString();
+            }
+
+            return content;
         }
     }
 }
