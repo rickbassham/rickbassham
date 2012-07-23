@@ -9,13 +9,29 @@
 @Html.Hidden("ShoppingListId", Model.Id)
 <ol id="shoppinglistitems" class="sortable" data-role="listview" data-inset="true" data-split-icon="delete">
     @foreach (HomeManager.Models.ShoppingListItem item in Model.ShoppingListItems.OrderBy(s => s.Rank)) {
-        <li id="@item.Id" data-role="fieldcontain">
+        <li id="@("sli_" + item.Id)" data-orig-rank="@item.Rank" data-role="fieldcontain">
             <a href="#">@Mehroz.Fraction.ToFraction(item.Amount).ToString() @item.Unit @item.Item.Name</a> <a href="@Url.Action("RemoveFromShoppingList", new { shoppingListId = Model.Id, shoppingListItemId = item.Id })" data-ajax="false">Delete</a>
         </li>
     }
     <li>
-        @Html.TextBox("itemString") <input type="submit" id="AddItem" value="Add" />
+        @Html.TextBox("itemString") <input type="submit" id="AddItem" value="Add" data-icon="plus" />
     </li>
 </ol>
 }
 </div>
+<!--
+<script>
+    var updateUrlFormat = '@Url.Action("UpdateRank", new {id = "#ID#", rank = "#RANK#" })';
+
+    $('#shoppinglistitems').sortable({
+        update: function (e, ui) {
+            $('#shoppinglistitems').listview('refresh');
+            console.log(e);
+            console.log(ui);
+
+            console.log(ui.item.data('orig-rank'));
+        }
+    });
+    $('#shoppinglistitems').disableSelection();
+</script>
+-->

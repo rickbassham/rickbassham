@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Shop";
 }
+
+<style>
+    .ui-slider .ui-slider-handle { height: 28px; width: 28px; }
+</style>
+
 <div id="shop" data-role="page">
 
     <div data-role="header">
@@ -10,8 +15,15 @@
         <a href="@Url.Action("Clear", new { id = Model.Id })" data-ajax="false">Clear</a>
     </div>
 
-    <div id="shop" data-role="content">
-        <div data-role="field-contain">
+    <div id="shopping" data-role="content">
+        <div data-role="fieldcontain">
+            <label for="showchecked">Show Checked:</label>
+            <select name="showchecked" id="showchecked" data-role="slider">
+                <option value="off">Off</option>
+                <option value="on">On</option>
+            </select> 
+        </div>
+        <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" id="listitems">
             @foreach (var item in Model.ShoppingListItems.OrderBy(i => i.Rank))
             {
@@ -19,13 +31,6 @@
                 <label for="@("sli_" + item.Id)">@Mehroz.Fraction.ToFraction(item.Amount).ToString() @item.Unit @item.Item.Name</label>
             }
             </fieldset>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="showchecked">Show Checked:</label>
-            <select name="showchecked" id="showchecked" data-role="slider">
-                <option value="off">Off</option>
-                <option value="on">On</option>
-            </select> 
         </div>
     </div>
 
