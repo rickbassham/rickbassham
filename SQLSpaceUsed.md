@@ -1,0 +1,20 @@
+
+```
+CREATE TABLE #SpaceUsed (
+	name nvarchar(255),
+	rows int,
+	reserved nvarchar(255),
+	data nvarchar(255),
+	index_size nvarchar(255),
+	unused nvarchar(255)
+)
+
+EXEC sp_MSforeachtable '
+	Insert Into #SpaceUsed
+		EXEC sp_spaceused ''?''
+'
+
+Select * From #SpaceUsed Order By Rows Desc
+
+DROP TABLE #SpaceUsed
+```
